@@ -9,6 +9,6 @@ namespace Modelos
   public  class Direccion
     {
         public int Id { get; set; }
-        public string Direccion { get; set; }
+        public string DireccionDescripcion { get; set; }
     }
 }

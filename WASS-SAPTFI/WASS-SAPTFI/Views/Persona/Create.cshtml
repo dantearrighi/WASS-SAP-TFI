@@ -1,0 +1,100 @@
+﻿@model Modelos.Persona
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Persona</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NombreYapellido)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NombreYapellido)
+            @Html.ValidationMessageFor(model => model.NombreYapellido)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DNI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DNI)
+            @Html.ValidationMessageFor(model => model.DNI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fecha_Nacimiento)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fecha_Nacimiento)
+            @Html.ValidationMessageFor(model => model.Fecha_Nacimiento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Estado_Civil)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Estado_Civil)
+            @Html.ValidationMessageFor(model => model.Estado_Civil)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sexo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sexo)
+            @Html.ValidationMessageFor(model => model.Sexo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telefono)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefono)
+            @Html.ValidationMessageFor(model => model.Telefono)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Celular)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Celular)
+            @Html.ValidationMessageFor(model => model.Celular)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Clave_Fiscal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Clave_Fiscal)
+            @Html.ValidationMessageFor(model => model.Clave_Fiscal)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
