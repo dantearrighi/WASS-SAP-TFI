@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WASS-SAPTFI", "WASS-SAPTFI\WASS-SAPTFI.csproj", "{C76A68A8-C11E-432A-A38C-146772965330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelos\Modelos.csproj", "{4EE58477-7EE7-4B2F-A464-54F5E855D0A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C76A68A8-C11E-432A-A38C-146772965330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C76A68A8-C11E-432A-A38C-146772965330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C76A68A8-C11E-432A-A38C-146772965330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C76A68A8-C11E-432A-A38C-146772965330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE58477-7EE7-4B2F-A464-54F5E855D0A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE58477-7EE7-4B2F-A464-54F5E855D0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE58477-7EE7-4B2F-A464-54F5E855D0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE58477-7EE7-4B2F-A464-54F5E855D0A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
