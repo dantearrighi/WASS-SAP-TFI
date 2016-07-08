@@ -6,13 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Modelos;
-using WASS_SAPTFI.Models;
+using Datos;
 
 namespace WASS_SAPTFI.Controllers
 {
     public class PersonaController : Controller
     {
-        private WASSdbContext db = new WASSdbContext();
+        private WASSDbContext db = new WASSDbContext();
 
         //
         // GET: /Persona/
