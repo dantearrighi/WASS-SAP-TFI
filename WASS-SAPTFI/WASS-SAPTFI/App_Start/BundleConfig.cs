@@ -23,8 +23,13 @@ namespace WASS_SAPTFI
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
-
+            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/css/bootstrap.css",
+                                                                    "~/Content/css/bootstrap.min.css",
+                                                                    "~/Content/css/simple-sidebar.css"));
+            bundles.Add(new ScriptBundle("~/Content/js").Include("~/Content/js/bootstrap.js",
+                                                                    "~/Content/js/bootstrap.min.js",
+                                                                    "~/Content/js/jquery.js"));
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",
