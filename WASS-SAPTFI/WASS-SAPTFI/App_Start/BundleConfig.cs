@@ -8,6 +8,13 @@ namespace WASS_SAPTFI
         // Para obtener más información acerca de Bundling, consulte http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/wasscript").Include(
+               "~/Scripts/jquery-{version}.js",
+               "~/Scripts/jquery-ui-{version}.js",
+               "~/Scripts/jquery.unobtrusive*",
+                        "~/Scripts/jquery.validate*"
+               ));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -26,10 +33,15 @@ namespace WASS_SAPTFI
             //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/css/bootstrap.css",
                                                                     "~/Content/css/bootstrap.min.css",
-                                                                    "~/Content/css/simple-sidebar.css"));
-            bundles.Add(new ScriptBundle("~/Content/js").Include("~/Content/js/bootstrap.js",
-                                                                    "~/Content/js/bootstrap.min.js",
+                                                                    "~/Content/css/simple-sidebar.css",
+                                                                    "~/Content/css/font-awesome.min.css",
+                                                                    "~/Content/css/font-awesome.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/js").Include( "~/Content/js/bootstrap.min.js",
+                                                                    "~/Content/js/sidebar_menu.js",
+                                                                    "~/Content/js/jquery-1.11.2.min.js",
                                                                     "~/Content/js/jquery.js"));
+
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",

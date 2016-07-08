@@ -5,18 +5,18 @@ namespace Datos.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class mig1 : IMigrationMetadata
+    public sealed partial class agregueelcelular : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(mig1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(agregueelcelular));
         
         string IMigrationMetadata.Id
         {
-            get { return "201607081638385_mig1"; }
+            get { return "201607082035104_agregue-el-celular"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

@@ -7,13 +7,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Modelos
 {
-   public class Provincia
+  public  class Detalles_Tramite
     {
-       [Key]
+      [Key]
         public int Id { get; set; }
-       [Required]
-       public string Nombre { get; set; }
 
-       public ICollection<Localidad> Localidades{ get; set; }
+      [DataType(DataType.DateTime)]
+      public DateTime Fecha_Desde { get; set; }
+
+      [Required]
+      public int IdTramite { get; set; }
     }
 }

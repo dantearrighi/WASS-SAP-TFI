@@ -30,7 +30,8 @@ namespace Datos.Migrations
                     Estado_Civil = "Soltero",
                     Fecha_Nacimiento = Convert.ToDateTime("1993/02/23"),
                     Sexo = "Femenino",
-                    Telefono = "",
+                    Telefono = "2323",
+
                 },
                  new Persona
                  {
@@ -42,7 +43,7 @@ namespace Datos.Migrations
                      Estado_Civil = "Divorciado",
                      Fecha_Nacimiento = Convert.ToDateTime("1960/05/02"),
                      Sexo = "Femenino",
-                     Telefono = "",
+                     Telefono = "2323",
                  },
                  new Persona
                  {
@@ -54,8 +55,9 @@ namespace Datos.Migrations
                      Estado_Civil = "Soltero",
                      Fecha_Nacimiento = Convert.ToDateTime("1910/03/18"),
                      Sexo = "Masculino",
-                     Telefono = "",
+                     Telefono = "2323",
                      
+
                  });
             #endregion
 
