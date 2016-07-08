@@ -35,7 +35,7 @@ namespace Datos
         public  DbSet<Tipo_Documento> Tipos_Documentos { get; set; }
 
         public  DbSet<Tipo_Tramite> Tipos_Tramites { get; set; }
-
+        public DbSet<Tipo_Persona> Tipos_Persona { get; set; }
         public  DbSet<Tramite> Tramites { get; set; }
 
         public  DbSet<Usuario> Usuarios { get; set; }
