@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelos\Modelos.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controladora", "D:\Documentos\UAI\WASS\WASS Diploma\Controladora\Controladora.csproj", "{6A2411B6-AE36-4C94-B3AC-347F5B14D659}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34519E7B-A2B4-4104-BFDA-2EC81A15DEED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2411B6-AE36-4C94-B3AC-347F5B14D659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2411B6-AE36-4C94-B3AC-347F5B14D659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2411B6-AE36-4C94-B3AC-347F5B14D659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2411B6-AE36-4C94-B3AC-347F5B14D659}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
