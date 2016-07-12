@@ -1,29 +1,6 @@
 ﻿@model IEnumerable<Modelos.Persona>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@using (Ajax.BeginForm(
-
-        new AjaxOptions
-        {
-            HttpMethod = "get",
-            InsertionMode = InsertionMode.Replace,
-            UpdateTargetId = "listapersonas"
-        }))
-{
-    <input type="search" name="buscadorPersonas" />
-    <input type="submit" value="Buscar persona" /> 
-}
-
-@*Html.Partial("_ListaPersonas",Model)*@
-
+<div id="listapersonas">
 
     <table class="table table-striped">
         <tr>
@@ -45,9 +22,9 @@
 
             <th></th>
         </tr>
-        <div id="listapersonas">
+       
             @foreach (var item in Model)
-        {
+            {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.NombreYapellido)
@@ -71,7 +48,8 @@
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
                     </td>
                 </tr>
-        }
-        </div>
+            }
+      
 
     </table>
+</div>

@@ -231,6 +231,7 @@
     <Content Include="Views\Tramite\Create.cshtml" />
     <Content Include="Views\Tramite\Edit.cshtml" />
     <Content Include="Views\Tramite\Delete.cshtml" />
+    <Content Include="Views\Persona\_ListaPersonas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

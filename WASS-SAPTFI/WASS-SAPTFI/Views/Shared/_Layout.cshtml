@@ -104,9 +104,8 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/Content/js")
-        
-</head>
+    @*Scripts.Render("~/Content/js")*@  
+   </head>
 <body>
        
     <nav class="navbar navbar-default no-margin">
@@ -136,9 +135,9 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Gestionar Personas</a>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-user fa-stack-1x"></i></span> Gestionar Personas</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="/Persona"><span class="fa-stack fa-lg pull-left"><i class="fa-flag"></i></span>Ver lista</a></li>
+                        <li><a href="/Persona"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list fa-stack-1x"></i></span>Ver lista</a></li>
                         <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Añadir</a></li>
                         <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Modificar</a></li>
                         <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Consultar</a></li>
@@ -196,9 +195,9 @@
     <!-- /#wrapper -->
   
       <!-- jQuery -->
-    <script src="js/jquery-1.11.2.min.js"></script>
+   @* <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/sidebar_menu.js"></script>
+    <script src="js/sidebar_menu.js"></script>*@
     @Scripts.Render("~/bundles/wasscript")
     @Scripts.Render("~/Content/js")
     @RenderSection("scripts", required: false)
