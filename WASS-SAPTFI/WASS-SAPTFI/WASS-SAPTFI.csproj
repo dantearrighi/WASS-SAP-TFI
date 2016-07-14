@@ -226,12 +226,12 @@
     <Content Include="Views\Persona\Create.cshtml" />
     <Content Include="Views\Persona\Edit.cshtml" />
     <Content Include="Views\Persona\Delete.cshtml" />
+    <Content Include="Views\Persona\_ListaPersonas.cshtml" />
     <Content Include="Views\Tramite\Index.cshtml" />
     <Content Include="Views\Tramite\Details.cshtml" />
     <Content Include="Views\Tramite\Create.cshtml" />
     <Content Include="Views\Tramite\Edit.cshtml" />
     <Content Include="Views\Tramite\Delete.cshtml" />
-    <Content Include="Views\Persona\_ListaPersonas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,9 @@
 ﻿@model Modelos.Tramite
 
+
 @{
     ViewBag.Title = "Create";
+    
 }
 
 <h2>Create</h2>
@@ -10,13 +12,19 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Tramite</legend>
+    <form class="form-inline">
+    <div class="form-group">
+        <label for="nombreyapellido">Nombre y Apellido</label>
+       
+         @Html.DropDownListFor("ListaTipos_Tramite", (SelectList)ViewBag.ListaTipos_Tramite)
+    </div>
+   
+    
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+    </form>
 }
 
 <div>
