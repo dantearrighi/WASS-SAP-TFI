@@ -133,6 +133,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Persona\PersonaVM.cs" />
+    <Compile Include="ViewModels\Tramite\ListaTramiteVM.cs" />
     <Compile Include="ViewModels\Tramite\TramiteVM.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +235,8 @@
     <Content Include="Views\Tramite\Create.cshtml" />
     <Content Include="Views\Tramite\Edit.cshtml" />
     <Content Include="Views\Tramite\Delete.cshtml" />
+    <Content Include="Views\Tramite\_AltaTramite.cshtml" />
+    <Content Include="Views\Tramite\_ListaTramites.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

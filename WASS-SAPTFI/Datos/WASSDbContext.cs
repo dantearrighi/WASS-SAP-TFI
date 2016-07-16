@@ -38,6 +38,8 @@ namespace Datos
         public DbSet<Tipo_Persona> Tipos_Persona { get; set; }
         public  DbSet<Tramite> Tramites { get; set; }
 
+        public DbSet<Detalles_Tramite> Detalles_Tramites{ get; set; }
+
         public  DbSet<Usuario> Usuarios { get; set; }
 
 

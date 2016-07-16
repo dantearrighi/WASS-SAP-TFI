@@ -7,15 +7,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Modelos
 {
-  public  class Detalles_Tramite
+    public class Detalles_Tramite
     {
-      [Key]
+        [Key]
         public int Id { get; set; }
 
-      [DataType(DataType.DateTime)]
-      public DateTime Fecha_Desde { get; set; }
+        [Required]
+        public string Descripcion { get; set; }
 
-      [Required]
-      public int IdTramite { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime Fecha_Desde { get; set; }
+
+        public virtual Tramite Tramite { get; set; }
+
+
     }
 }

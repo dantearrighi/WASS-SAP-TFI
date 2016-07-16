@@ -21,11 +21,10 @@
     <input type="search" name="buscadorPersonas" />
     <input type="submit" value="Buscar persona" /> 
 }
+   
+    @Html.Partial("_ListaPersonas",Model)
 
-@*Html.Partial("_ListaPersonas",Model)*@
-
-
-    <table class="table table-striped">
+@*   <table class="table table-striped">
         <tr>
             <th>
                 Nombre y Apellido
@@ -75,3 +74,4 @@
         </div>
 
     </table>
+*@

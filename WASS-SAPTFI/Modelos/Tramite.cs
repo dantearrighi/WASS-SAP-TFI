@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Modelos
 {
@@ -11,13 +12,16 @@ namespace Modelos
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+      
+       [Required]
+        public virtual Tipo_Tramite Tipo_Tramite { get; set; }
+        public virtual ICollection<Expediente> Expedientes { get; set; }
+        public virtual ICollection<Calculo> Calculos{ get; set; }
 
-        public Tipo_Tramite Tipo_Tramite { get; set; }
-        public ICollection<Expediente> Expedientes { get; set; }
-        public ICollection<Calculo> Calculos{ get; set; }
+        public virtual ICollection<Detalles_Tramite> Detalles_Tramite{ get; set; }
 
-        public ICollection<Detalles_Tramite> Detalles_Tramite{ get; set; }
+        
+        public virtual Persona Persona { get; set; }
         
     }
 }
