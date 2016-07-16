@@ -19,6 +19,11 @@ namespace WASS_SAPTFI.Controllers
 
         public ActionResult Index()
         {
+
+          // if (Request.IsAjaxRequest())
+          //  {
+          //      return PartialView("_ListaPersonas", db.Personas.ToList());
+          //  }
             return View(db.Personas.ToList());
         }
 

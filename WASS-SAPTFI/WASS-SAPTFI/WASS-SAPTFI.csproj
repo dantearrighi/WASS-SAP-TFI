@@ -133,6 +133,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Tramite\TramiteVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -226,6 +227,7 @@
     <Content Include="Views\Persona\Create.cshtml" />
     <Content Include="Views\Persona\Edit.cshtml" />
     <Content Include="Views\Persona\Delete.cshtml" />
+    <Content Include="Views\Persona\_ListaPersonas.cshtml" />
     <Content Include="Views\Tramite\Index.cshtml" />
     <Content Include="Views\Tramite\Details.cshtml" />
     <Content Include="Views\Tramite\Create.cshtml" />

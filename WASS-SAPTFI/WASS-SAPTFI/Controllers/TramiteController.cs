@@ -40,6 +40,7 @@ namespace WASS_SAPTFI.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.ListaTipos_Tramite = db.Tipos_Tramites.ToList();
             return View();
         }
 

@@ -4,95 +4,93 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Añadir Persona</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Persona</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.NombreYapellido)
+    <legend>Persona</legend>
+    <p class="bg-info">Datos básicos</p>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="nombreyapellido">Nombre y Apellido</label>
+            @Html.TextBoxFor(model => model.NombreYapellido, new { @class = "form-control", placeholder = "", id = "nombreyapellido", type = "text" })
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.NombreYapellido)
-            @Html.ValidationMessageFor(model => model.NombreYapellido)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DNI)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DNI)
+        <div class="form-group">
+            <label for="dni">Número de Documento</label>
+            @Html.TextBoxFor(model => model.DNI, new { @class = "form-control", placeholder = "", id = "dni", type = "text" })
             @Html.ValidationMessageFor(model => model.DNI)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Fecha_Nacimiento)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Fecha_Nacimiento)
+        <div class="form-group">
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            @Html.TextBoxFor(model => model.Fecha_Nacimiento, new { @class = "form-control", placeholder = "", id = "fecha_nacimiento", type = "date" })
             @Html.ValidationMessageFor(model => model.Fecha_Nacimiento)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Estado_Civil)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Estado_Civil)
+        <div class="form-group">
+            <label for="estado_civil">Estado civil</label>
+            <select class="form-control" id="estado_civil">
+                <option>Soltero/a</option>
+                <option>Casado/a</option>
+                <option>Divorciado/a</option>
+                <option>Viudo/a</option>
+                
+            </select>
             @Html.ValidationMessageFor(model => model.Estado_Civil)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Sexo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Sexo)
+            </div>
+            
+        <div class="form-group">
+            <label for="sexo">Sexo</label>
+            <label class="radio-inline">
+                <input type="radio" name="sexo" id="sexomasculino" value="Masculino"> Masculino
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="sexo" id="sexofemenino" value="Femenino"> Femenino
+            </label>
             @Html.ValidationMessageFor(model => model.Sexo)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Telefono)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Telefono)
-            @Html.ValidationMessageFor(model => model.Telefono)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Celular)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Celular)
+        <p class="bg-info">Información de contacto</p>
+
+
+    
+    <div class="form-group">
+        <label for="telefono">Telefono</label>
+        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", placeholder = "",id="telefono", type = "text" })
+        @Html.ValidationMessageFor(model => model.Telefono)
+    </div>
+
+        <div class="form-group">
+            <label for="celular">Celular</label>
+             @Html.TextBoxFor(model => model.Celular, new { @class = "form-control", placeholder = "", id="celular", type = "text" })
             @Html.ValidationMessageFor(model => model.Celular)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
+        <div class="form-group">
+            
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "persona@email.com", type = "email" })
+           
             @Html.ValidationMessageFor(model => model.Email)
         </div>
+                        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Clave_Fiscal)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Clave_Fiscal)
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Clave_Fiscal, new { @class = "form-control", placeholder = "", id = "clave_fiscal", type = "text" })
             @Html.ValidationMessageFor(model => model.Clave_Fiscal)
         </div>
 
         <p>
             <input type="submit" value="Create" />
         </p>
-    </fieldset>
+    </form>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a la lista", "Index")
 </div>
 
 @section Scripts {
