@@ -8,24 +8,27 @@
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(true, "Debe corregir los siguientes errores:", new { @class="bg-danger"})
 
     <legend>Persona</legend>
     <p class="bg-info">Datos básicos</p>
     <form class="form-inline">
         <div class="form-group">
             <label for="nombreyapellido">Nombre y Apellido</label>
-            @Html.TextBoxFor(model => model.NombreYapellido, new { @class = "form-control", placeholder = "", id = "nombreyapellido", type = "text" })
+            @Html.TextBoxFor(model => model.NombreYapellido, new { @class = "form-control", placeholder = "", id = "nombreyapellido", type = "text"})
+            @Html.ValidationMessage("NombreYapellido", new { @class="bg-danger"}) 
+            
+          
         </div>
         <div class="form-group">
             <label for="dni">Número de Documento</label>
             @Html.TextBoxFor(model => model.DNI, new { @class = "form-control", placeholder = "", id = "dni", type = "text" })
-            @Html.ValidationMessageFor(model => model.DNI)
+            @Html.ValidationMessage("DNI", new { @class = "bg-danger" })
         </div>
         <div class="form-group">
             <label for="fecha_nacimiento">Fecha de nacimiento</label>
             @Html.TextBoxFor(model => model.Fecha_Nacimiento, new { @class = "form-control", placeholder = "", id = "fecha_nacimiento", type = "date" })
-            @Html.ValidationMessageFor(model => model.Fecha_Nacimiento)
+            @Html.ValidationMessage("Fecha_Nacimiento", new { @class="bg-danger"})
         </div>
         <div class="form-group">
             <label for="estado_civil">Estado civil</label>
@@ -36,7 +39,7 @@
                 <option>Viudo/a</option>
                 
             </select>
-            @Html.ValidationMessageFor(model => model.Estado_Civil)
+            @*Html.ValidationMessageFor(model => model.Estado_Civil)*@
             </div>
             
         <div class="form-group">
@@ -47,7 +50,7 @@
             <label class="radio-inline">
                 <input type="radio" name="sexo" id="sexofemenino" value="Femenino"> Femenino
             </label>
-            @Html.ValidationMessageFor(model => model.Sexo)
+            
         </div>
 
 
@@ -58,20 +61,19 @@
     <div class="form-group">
         <label for="telefono">Telefono</label>
         @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", placeholder = "",id="telefono", type = "text" })
-        @Html.ValidationMessageFor(model => model.Telefono)
+        @Html.ValidationMessage("Telefono", new { @class = "bg-danger" })
     </div>
 
         <div class="form-group">
             <label for="celular">Celular</label>
              @Html.TextBoxFor(model => model.Celular, new { @class = "form-control", placeholder = "", id="celular", type = "text" })
-            @Html.ValidationMessageFor(model => model.Celular)
+            @Html.ValidationMessage("Celular", new { @class = "bg-danger" })
         </div>
 
         <div class="form-group">
             
             @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "persona@email.com", type = "email" })
-           
-            @Html.ValidationMessageFor(model => model.Email)
+            @Html.ValidationMessage("Email", new { @class = "bg-danger" })
         </div>
                         
 
@@ -80,7 +82,7 @@
         </div>
         <div class="form-group">
             @Html.TextBoxFor(model => model.Clave_Fiscal, new { @class = "form-control", placeholder = "", id = "clave_fiscal", type = "text" })
-            @Html.ValidationMessageFor(model => model.Clave_Fiscal)
+           
         </div>
 
         <p>
@@ -95,4 +97,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }
