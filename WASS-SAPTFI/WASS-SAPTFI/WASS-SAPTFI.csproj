@@ -237,10 +237,12 @@
     <Content Include="Views\Tramite\Delete.cshtml" />
     <Content Include="Views\Tramite\_AltaTramite.cshtml" />
     <Content Include="Views\Tramite\_ListaTramites.cshtml" />
+    <Content Include="Views\Tramite\_SeleccionarPersonaLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Tramite\AltaTramite\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

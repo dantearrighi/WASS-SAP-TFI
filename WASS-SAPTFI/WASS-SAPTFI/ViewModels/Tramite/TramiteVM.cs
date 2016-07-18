@@ -22,6 +22,12 @@ namespace WASS_SAPTFI.ViewModels.Tramite
         public List<Estado> Estados { get; set; }
 
 
+
+        public DateTime Fecha_Alta { get; set; }
+
+        public string Enviado_por { get; set; }
+
+        public string Derivado_a { get; set; }
         public Estado Estado { get; set; }
         public Tipo_Tramite Tipo_Tramite { get; set; }
         public Modelos.Persona Persona { get; set; }
