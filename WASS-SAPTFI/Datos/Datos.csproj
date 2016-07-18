@@ -53,6 +53,10 @@
     <Compile Include="Migrations\201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.Designer.cs">
       <DependentUpon>201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607181642076_Add-Estado-Tramite-y-Persona.cs" />
+    <Compile Include="Migrations\201607181642076_Add-Estado-Tramite-y-Persona.Designer.cs">
+      <DependentUpon>201607181642076_Add-Estado-Tramite-y-Persona.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WASSDbContext.cs" />
@@ -73,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.resx">
       <DependentUpon>201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607181642076_Add-Estado-Tramite-y-Persona.resx">
+      <DependentUpon>201607181642076_Add-Estado-Tramite-y-Persona.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

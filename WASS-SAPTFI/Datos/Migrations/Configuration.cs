@@ -31,7 +31,7 @@ namespace Datos.Migrations
                     Fecha_Nacimiento = Convert.ToDateTime("1993/02/23"),
                     Sexo = "Femenino",
                     Telefono = "2323",
-
+                    
                 },
                  new Persona
                  {
@@ -252,6 +252,21 @@ namespace Datos.Migrations
                    Rol="Invitado",
                });
             #endregion
+
+            //CARGO LOS ESTADOS
+            context.Estados.AddOrUpdate(e => e.Descripcion,
+                new Estado
+                {
+                    Descripcion = "Activo",  //TRAMITES Y PERSONAS PUEDEN ESTAR ACTIVOS
+                },
+                new Estado
+                {
+                    Descripcion = "Finalizado", //TRAMITES PUEDEN ESTAR FINALIZADOS
+                },
+                new Estado
+                {
+                    Descripcion = "Baja"         //PERSONAS PUEDEN ESTAR DE BAJA
+                });
 
         }
     }

@@ -2,6 +2,10 @@
 
 <h2>Alta de Trámite: Seleccionar persona</h2>
 
+<!--- BUSCAR PERSONA O AÑADIR NUEVA-->
+@Html.ActionLink("Añadir", "Create", "Persona")
+<p> </p>
+
 <div id="listapersonas">
 
     <table class="table table-striped">
@@ -25,12 +29,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.DNI)
                 </td>
-            
-
                 <td>
                     @Html.ActionLink("Seleccionar", "SeleccionarPersona", new {id = item.Id })
-                   
-                    
                 </td>
             </tr>
         }

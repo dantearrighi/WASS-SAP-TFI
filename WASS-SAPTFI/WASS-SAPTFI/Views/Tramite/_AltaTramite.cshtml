@@ -12,10 +12,10 @@
         
         
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#datospersonales">Datos Personales</a></li>
-            <li><a href="#infoTramite">Información del Tramite</a></li>
-            <li><a href="#detallesTramite">Detalles</a></li>
-            <li><a href="#guardar">Guardar</a></li>
+            <li class="active"><a href="#datospersonales">1- Datos Personales</a></li>
+            <li><a href="#infoTramite">2- Información del Tramite</a></li>
+            <li><a href="#detallesTramite">3- Detalles</a></li>
+            <li><a href="#guardar">4- Guardar</a></li>
            
         </ul>
 
@@ -23,16 +23,21 @@
             
             <!--- SELECCIONAR PERSONA-->
             <div id="datospersonales" class="tab-pane fade in active">
-                <h3>Persona</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                        PASO 1: Seleccionar Persona
+                    </div>
+                </div>
+                <h3>Datos de la Persona:</h3>
 
 
                 <div class="form-inline">
                     
                     <div class="container-fluid .col-xs-12 .col-sm-6 .col-md-8">
                         <div class="row">
-                            <label for="nombreyapellido">Nombre</label>
+                            <label for="nombreyapellido">Nombre y Apellido</label>
                             @Html.TextBoxFor(model => model.Persona.NombreYapellido, new { @class = "form-control", placeholder = "", id = "nombreyapellido", name = "nombreyapellido", type = "text" })
-                            @Html.ValidationMessageFor(model => model.Persona.NombreYapellido)
+                            
                         </div>
                     </div>
                 </div>
@@ -44,25 +49,36 @@
                             <label for="dni">Documento</label>
                             @Html.TextBoxFor(model => model.Persona.DNI, new { @class = "form-control", placeholder = "", id = "campoDNI", type = "text", name = "campoDNI" })
 
-                            @Html.ValidationMessageFor(model => model.Persona.DNI)
                         </div>
                         <p> </p>
                         <div class="container-fluid .col-xs-12 .col-sm-6 .col-md-8">
-                            @Html.ActionLink("Buscar Persona", "BuscarPersona", "Tramite", new { @class = "btn btn-primary" }) 
+                            @Html.ActionLink("Buscar Persona", "BuscarPersona", "Tramite", new { @class = "btn btn-primary" })
+                            @Html.ValidationMessageFor(model=> model.Persona) 
                         </div>
                     </div>
                     </div>
 
 
-            </div> <!---FIN SELECCIONAR PERSONA-->
+            </div> 
+    
+            <!---FIN SELECCIONAR PERSONA-->
 
 
             <!---DATOS DEL TRAMiTE-->
-            <div id="infoTramite" class="tab-pane fade">
-                <h3>Tipo de Trámite</h3>
+       
+         <div id="infoTramite" class="tab-pane fade">
+             <div class="progress">
+                 <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+                     PASO 2: Información del Trámite
+                 </div>
+             </div>
+                      <h3>Información del Trámite</h3>
                     
-                <div class="form-group">
-                    @Html.DropDownListFor(m => m.Tipo_Tramite.Descripcion, listaTT, "Seleccionar Tipo", new { @class = "form-control", id = "tipot", name = "tipot" })
+             <label for="tt">Tipo de Trámite</label>
+                <div class="form-group" id="tt" >
+                    @Html.DropDownListFor(model=>model.Tipo_Tramite.Id, listaTT, "Seleccionar Tipo", new { @class = "form-control", id = "tipot", name = "tipot" })
+                    
+                   
                 </div>
             
             <p> </p>
@@ -82,12 +98,20 @@
                 @Html.TextBoxFor(model => model.Derivado_a, new { @class = "form-control", placeholder = "", id = "derivadoa", type = "text", name = "derivadoa" })
 
                 
-            </div> <!---FIN DATOS DEL TRAMITE-->
+            </div> 
+    
+            <!---FIN DATOS DEL TRAMITE-->
             
             
             <!---DETALLES DEL TRAMITE-->
+            
             <div id="detallesTramite" class="tab-pane fade">
-                <h3>Movimientos</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
+                        PASO 3: Detalles del Trámite
+                    </div>
+                </div>
+                <h3>Detalle de Movimientos</h3>
                
                 <p> </p>
 
@@ -100,43 +124,36 @@
                 <label for="descripcion">Descripción: </label>
                 @Html.TextBoxFor(model => model.Detalle_Tramite.Descripcion, new { @class = "form-control", placeholder = "", id = "descripcion", type = "text", name = "descripcion" })
 
-            </div> <!---FIN DETALLES DEL TRAMITE-->
+                
+               
+
+
+
+</div> 
+    
+            <!---FIN DETALLES DEL TRAMITE-->
             
             <!---GUARDAR TRAMITE-->
-            <div id="guardar" class="tab-pane fade">
+           
+     <div id="guardar" class="tab-pane fade">
+         <div class="progress">
+             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 99%;">
+                 PASO 4: Verificar y Guardar
+             </div>
+         </div>
                 <h3>Verifique los datos antes de guardar</h3>
-                @Html.CheckBox("verificar", new { id = "verificar", name = "verificar" });
+            <hr />
+            <p>Mostrar aqui los datos ingresados</p>    
+            @Html.CheckBox("verificar", new { id = "verificar", name = "verificar" });
             <hr />   
-            
-               
-                  @{  if (Request.Form["verificar"].IsBool())
-                    {
-                        var derivadoa = Request.Form["derivadoa"];
-                        var enviadopor = Request.Form["enviadopor"];
-                        var pnombre = Request.Form["nombreyapellido"];
-                        var pdni = Request.Form["campoDNI"];
-                        var tipotramite = Request.Form["tipot"];
-                        var fecha_alta = Request.Form["fecha_alta"];
-                        var fecha_detalle = Request.Form["fecha_detalle"];
-                        var descripcion = Request.Form["descripcion"];
-                    
-
-
-                <p> @pnombre.ToString();</p>
-                <p> @pdni.ToString();</p>
-                <p> @tipotramite.ToString();</p>
-                <p> @fecha_alta.ToString();</p>
-                <p> @enviadopor.ToString();</p>
-                <p> @derivadoa.ToString()</p>
-                <p> @fecha_detalle.ToString()</p>
-                <p> @descripcion.ToString()</p>
-                    }
-                    }    
+              
             
             <input type="submit" name="btnGuardar" class="btn btn-success" value="Guardar" />
 
 
-            </div> <!---FIN DETALLES DEL TRAMITE-->
+            </div> 
+            
+            <!---FIN GUARDAR TRAMITE-->
 
         </div> <!---END TABS-->
         

@@ -26,6 +26,7 @@ namespace Modelos
 
         public virtual ICollection<Detalles_Tramite> Detalles_Tramite{ get; set; }
 
+        public virtual Estado Estado { get; set; }
         
         public virtual Persona Persona { get; set; }
         

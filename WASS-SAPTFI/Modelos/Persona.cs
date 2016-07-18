@@ -12,10 +12,10 @@ namespace Modelos
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Es obligatorio ingresar un Nombre y Apellido")]
         public string NombreYapellido { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Es obligatorio ingresar un número de documento")]
         public string DNI { get; set; }
 
         
@@ -24,6 +24,7 @@ namespace Modelos
         
         public Tipo_Persona Tipo_Persona { get; set; }
 
+        [Required(ErrorMessage = "Es obligatorio ingresar la fecha de nacimiento")]
         [DataType(DataType.Date)]
         public DateTime Fecha_Nacimiento { get; set; }
 
@@ -31,14 +32,14 @@ namespace Modelos
 
         public string Sexo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Es obligatorio ingresar un Teléfono. Si no posee, ingrese 0")]
         public string Telefono { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Es obligatorio ingresar un Celular. Si no posee, ingrese 0")]
         public string Celular { get; set; }
 
         [Required]
-        [DataType(DataType.EmailAddress)]
+        [DataType(DataType.EmailAddress,ErrorMessage="Es obligatorio ingresar un Email")]
         public string Email { get; set; }
 
         public string Clave_Fiscal { get; set; }
