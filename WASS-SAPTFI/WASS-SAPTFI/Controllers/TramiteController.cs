@@ -17,6 +17,12 @@ namespace WASS_SAPTFI.Controllers
     {
         private WASSDbContext db = new WASSDbContext();
 
+
+        TramiteVM modelAlta = new TramiteVM();
+
+
+
+
         //
         // GET: /Tramite/
 
@@ -43,37 +49,76 @@ namespace WASS_SAPTFI.Controllers
         // TramiteVM tiene los datos para crear un tramite: Lista de Personas, Tipos de Tramite
         public ActionResult Create()
         {
-            TramiteVM model = new TramiteVM();
+            // TramiteVM model = new TramiteVM();
 
+            CargarTramiteViewModel();
+            return View("_AltaTramite", modelAlta);
+        }
+
+        private void CargarTramiteViewModel()
+        {
             //TIPOS DE TRAMITE
-            model.Lista_Tipos_Tramite = db.Tipos_Tramites.ToList();
+            modelAlta.Lista_Tipos_Tramite = db.Tipos_Tramites.ToList();
 
-         /*       var lista = db.Tipos_Tramites.Select(tt => new SelectListItem
-            {
-                Value = tt.Id.ToString(),
-                Text = tt.Descripcion
-            });
-
-                model.Lista_Tipos_Tramite = lista;    */
-
-
-            model.Lista_Personas = new List<PersonaVM>();
-
-            //PERSONAS PARA LA LISTA
-            foreach(Persona p in db.Personas)
-            {
-                PersonaVM pVM = new PersonaVM();
-                pVM.Id = p.Id;
-                pVM.NombreYapellido = p.NombreYapellido;
-                pVM.DNI = p.DNI;
-                pVM.Tipo_Persona = p.Tipo_Persona;
-                
-                model.Lista_Personas.Add(pVM);
-            }
+            
 
             //ESTADOS
-            model.Estados = db.Estados.ToList();
-            return PartialView("_AltaTramite",model);
+            modelAlta.Estados = db.Estados.ToList();
+        }
+
+        private void CargarTramiteViewModel(Persona pPersona)
+        {
+            //TIPOS DE TRAMITE
+            modelAlta.Lista_Tipos_Tramite = db.Tipos_Tramites.ToList();
+
+            
+
+            //ESTADOS
+            modelAlta.Estados = db.Estados.ToList();
+
+            modelAlta.Persona = new Persona();
+
+            modelAlta.Persona.NombreYapellido = pPersona.NombreYapellido;
+            modelAlta.Persona.DNI = pPersona.DNI;
+            modelAlta.Persona.Id = pPersona.Id;
+
+
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GuardarTramite(TramiteVM pTramite)
+        {
+            Tramite tramiteNuevo = new Tramite();
+
+            tramiteNuevo.Persona = new Persona();
+            tramiteNuevo.Persona = db.Personas.ToList().Find(delegate(Persona fPersona)
+            {
+                return fPersona.DNI == pTramite.Persona.DNI;
+            });
+
+            tramiteNuevo.Tipo_Tramite = new Tipo_Tramite();
+            tramiteNuevo.Tipo_Tramite = pTramite.Tipo_Tramite;
+
+            tramiteNuevo.Fecha_Alta = new DateTime();
+            tramiteNuevo.Fecha_Alta = pTramite.Fecha_Alta;
+
+            tramiteNuevo.Enviado_por = pTramite.Enviado_por;
+            tramiteNuevo.Derivado_a = pTramite.Derivado_a;
+
+            tramiteNuevo.Detalles_Tramite = new List<Detalles_Tramite>();
+            tramiteNuevo.Detalles_Tramite.Add(pTramite.Detalle_Tramite);
+
+           // if (ModelState.IsValid)
+          //  {
+                db.Tramites.Add(tramiteNuevo);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+          //  }
+
+        //    return View("_AltaTramite", modelAlta);
+
         }
 
         //
@@ -185,6 +230,27 @@ namespace WASS_SAPTFI.Controllers
             return PartialView("_ListaTramites", listaTramites);
         }
 
+
+
+
+
+       public ActionResult BuscarPersona()
+       {
+           return View("_SeleccionarPersonaLista",db.Personas);
+       }
+
+
+
+        //Buscar Persona
+       public ActionResult SeleccionarPersona(int id)
+       {
+           Persona oPersona = db.Personas.Find(id);
+
+           CargarTramiteViewModel(oPersona);
+
+
+           return View("_AltaTramite", modelAlta);
+       }
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
