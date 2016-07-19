@@ -133,6 +133,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Tramite\Detalle_TramiteVM.cs" />
     <Compile Include="ViewModels\Persona\PersonaVM.cs" />
     <Compile Include="ViewModels\Tramite\ListaTramiteVM.cs" />
     <Compile Include="ViewModels\Tramite\TramiteVM.cs" />
@@ -238,6 +239,7 @@
     <Content Include="Views\Tramite\_AltaTramite.cshtml" />
     <Content Include="Views\Tramite\_ListaTramites.cshtml" />
     <Content Include="Views\Tramite\_SeleccionarPersonaLista.cshtml" />
+    <Content Include="Views\Tramite\_ModificarTramite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
