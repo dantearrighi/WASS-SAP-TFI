@@ -5,13 +5,13 @@ namespace Datos.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class agregueelcelular : IMigrationMetadata
+    public sealed partial class AddEstadoTramiteyPersona : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(agregueelcelular));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddEstadoTramiteyPersona));
         
         string IMigrationMetadata.Id
         {
-            get { return "201607082035104_agregue-el-celular"; }
+            get { return "201607181642076_Add-Estado-Tramite-y-Persona"; }
         }
         
         string IMigrationMetadata.Source

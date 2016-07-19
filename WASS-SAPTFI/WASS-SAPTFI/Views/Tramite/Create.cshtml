@@ -16,8 +16,8 @@
     <div class="form-group">
         <label for="nombreyapellido">Nombre y Apellido</label>
        
-         @Html.DropDownListFor("ListaTipos_Tramite", (SelectList)ViewBag.ListaTipos_Tramite)
-    </div>
+         @Html.DropDownListFor("Lista_Tipos_Tramite",(SelectList)ViewBag.oTramiteVM.Lista_Tipos_Tramite.ToList())
+         </div>
    
     
 

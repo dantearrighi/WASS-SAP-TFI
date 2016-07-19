@@ -1,27 +1,19 @@
 ﻿@model IEnumerable<Modelos.Tramite>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "WASS- Gestion de Trámites";
 }
 
-<h2>Index</h2>
+<h2>Gestion de Trámites</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Añadir", "Create", "Tramite", new { @class = "btn btn-primary" })
 </p>
-<table>
-    <tr>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
 
-</table>
+@Html.Action("ListarTramites","Tramite")
+
+
+
+
+

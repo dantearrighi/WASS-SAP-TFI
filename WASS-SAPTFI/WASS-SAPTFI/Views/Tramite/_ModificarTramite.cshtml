@@ -1,0 +1,105 @@
+﻿@model WASS_SAPTFI.ViewModels.Tramite.Detalle_TramiteVM
+@{
+    ViewBag.Title = "Modificar";
+}
+
+@using (Html.BeginForm("ModificarTramite", "Tramite", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+
+    <h2>Modificar Trámite</h2>
+    <hr />
+    <div class="panel panel-default panel-primary">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            Información del Trámite Número: <span class="badge" style="text-align:end">@Model.IdTramite</span>
+        </div>
+        <div class="panel-body">
+            <table class="table ">
+                <tr>
+                    <td>
+                        <div class="panel panel-default panel-info">
+                            <div class="panel-heading">Datos Personales</div>
+                            <div class="panel-body">
+
+                                @Html.Label("model.NombreYapellido", "Nombre y Apellido")
+                                @Html.TextBoxFor(model => model.NombreYapellido, new { @class = "form-control", disabled = "disabled" })
+                                @Html.Label("model.DNI", "Documento")
+                                @Html.TextBoxFor(model => model.DNI, new { @class = "form-control", disabled = "disabled" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="panel panel-default panel-info">
+                            <div class="panel-heading">Datos Básicos</div>
+                            <div class="panel-body">
+
+                                @Html.Label("model.TipoTramiteDescripcion", "Tipo de Trámite")
+                                @Html.TextBoxFor(model => model.TipoTramiteDescripcion, new { @class = "form-control", disabled = "disabled" })
+                                @Html.Label("model.Fecha_Alta", "Fecha de Alta")
+                                @Html.TextBoxFor(model => model.Fecha_Alta, new { @class = "form-control", disabled = "disabled" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel panel-default panel-info">
+            <div class="panel-heading">Movimientos Históricos</div>
+            <div class="panel-body">
+                <!-- Table -->
+                <table class="table">
+                    <tr>
+                        <th>
+                            Fecha de movimiento            |    Descripcion
+                        </th>
+
+                    </tr>
+                    @foreach (var item in Model.DetallesHistoricos.ToList())
+            {
+                        <tr>
+                            <td>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon3">@item.Fecha_Desde.ToShortDateString()</span>
+                                    <input type="text" class="form-control" id="fecha_desde" aria-describedby="basic-addon3" disabled="disabled" value="@item.Descripcion">
+                                </div>
+                            </td>
+                            @*<td>
+
+                                    @Html.DisplayFor(modelItem => item.Fecha_Desde)
+                                </td>
+                                <td>
+                                    @Html.TextAreaFor(modelItem => item.Descripcion)
+                                </td>*@
+
+                        </tr>
+            }
+                    </table>
+              </div>
+            
+    </div>
+            <p>
+                <input type="submit" value="Guardar" class="btn btn-success"  />
+            </p>
+
+            </div>
+}
+
+
+            <div>
+                @Html.ActionLink("Volver a la lista","Index","Tramite",new { @class = "btn btn-danger" })
+            </div>
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+
+
+
+
+
+

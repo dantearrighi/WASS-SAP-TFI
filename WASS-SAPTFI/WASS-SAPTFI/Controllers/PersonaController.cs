@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Modelos;
 using Datos;
+using WASS_SAPTFI.ViewModels.Persona;
 
 namespace WASS_SAPTFI.Controllers
 {
@@ -118,6 +119,33 @@ namespace WASS_SAPTFI.Controllers
             db.Personas.Remove(persona);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+        //
+        //GET: /Persona/SeleccionarPersona
+        public ActionResult SeleccionarPersona(int id)
+        {
+            //Busco una persona por ID
+            Persona oPersona = db.Personas.Find(id);
+
+            if (oPersona == null)
+            {
+                return HttpNotFound();
+            }
+            {//Si la encuentro, le asigno a PersonaViewModel las propiedades de esa persona
+                var model = from p in db.Personas
+                            select new PersonaVM
+                            {
+                                Id = p.Id,
+                                NombreYapellido = p.NombreYapellido,
+                                DNI = p.DNI,
+                                Tipo_Persona = p.Tipo_Persona
+                            };
+                //y mando PersonaVM a la vista
+                return View(model);
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

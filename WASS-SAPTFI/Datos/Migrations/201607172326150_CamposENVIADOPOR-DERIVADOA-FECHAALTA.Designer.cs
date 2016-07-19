@@ -5,13 +5,13 @@ namespace Datos.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class agreguelaDireccionPersona : IMigrationMetadata
+    public sealed partial class CamposENVIADOPORDERIVADOAFECHAALTA : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(agreguelaDireccionPersona));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CamposENVIADOPORDERIVADOAFECHAALTA));
         
         string IMigrationMetadata.Id
         {
-            get { return "201607082041188_agregue-la-Direccion-Persona"; }
+            get { return "201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@ namespace Datos.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class initial2 : DbMigration
     {
         public override void Up()
         {
@@ -26,8 +26,11 @@ namespace Datos.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         DireccionDescripcion = c.String(nullable: false),
+                        Persona_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Persona", t => t.Persona_Id)
+                .Index(t => t.Persona_Id);
             
             CreateTable(
                 "dbo.Documentacion",
@@ -69,8 +72,11 @@ namespace Datos.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Nombre = c.String(nullable: false),
                         Codigo_Postal = c.Int(nullable: false),
+                        Provincia_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Provincia", t => t.Provincia_Id)
+                .Index(t => t.Provincia_Id);
             
             CreateTable(
                 "dbo.Persona",
@@ -83,9 +89,36 @@ namespace Datos.Migrations
                         Estado_Civil = c.String(),
                         Sexo = c.String(),
                         Telefono = c.String(nullable: false),
-                        Celular = c.String(),
+                        Celular = c.String(nullable: false),
                         Email = c.String(nullable: false),
                         Clave_Fiscal = c.String(),
+                        Tipo_Documento_Id = c.Int(),
+                        Tipo_Persona_Id = c.Int(),
+                        Estado_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Tipo_Documento", t => t.Tipo_Documento_Id)
+                .ForeignKey("dbo.Tipo_Persona", t => t.Tipo_Persona_Id)
+                .ForeignKey("dbo.Estado", t => t.Estado_Id)
+                .Index(t => t.Tipo_Documento_Id)
+                .Index(t => t.Tipo_Persona_Id)
+                .Index(t => t.Estado_Id);
+            
+            CreateTable(
+                "dbo.Tipo_Documento",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Descripcion = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Tipo_Persona",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Descripcion = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -117,8 +150,8 @@ namespace Datos.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Descripcion = c.String(nullable: false),
                         Fecha_Desde = c.DateTime(nullable: false),
-                        IdTramite = c.Int(nullable: false),
                         Tramite_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -131,24 +164,6 @@ namespace Datos.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nombre = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Tipo_Documento",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Descripcion = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Tipo_Persona",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Descripcion = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -169,22 +184,32 @@ namespace Datos.Migrations
             DropIndex("dbo.Detalles_Tramite", new[] { "Tramite_Id" });
             DropIndex("dbo.Tramite", new[] { "Persona_Id" });
             DropIndex("dbo.Tramite", new[] { "Tipo_Tramite_Id" });
+            DropIndex("dbo.Persona", new[] { "Estado_Id" });
+            DropIndex("dbo.Persona", new[] { "Tipo_Persona_Id" });
+            DropIndex("dbo.Persona", new[] { "Tipo_Documento_Id" });
+            DropIndex("dbo.Localidad", new[] { "Provincia_Id" });
             DropIndex("dbo.Expediente", new[] { "Tramite_Id" });
             DropIndex("dbo.Documentacion", new[] { "Tipo_Tramite_Id" });
+            DropIndex("dbo.Direccion", new[] { "Persona_Id" });
             DropIndex("dbo.Calculo", new[] { "Tramite_Id" });
             DropForeignKey("dbo.Detalles_Tramite", "Tramite_Id", "dbo.Tramite");
             DropForeignKey("dbo.Tramite", "Persona_Id", "dbo.Persona");
             DropForeignKey("dbo.Tramite", "Tipo_Tramite_Id", "dbo.Tipo_Tramite");
+            DropForeignKey("dbo.Persona", "Estado_Id", "dbo.Estado");
+            DropForeignKey("dbo.Persona", "Tipo_Persona_Id", "dbo.Tipo_Persona");
+            DropForeignKey("dbo.Persona", "Tipo_Documento_Id", "dbo.Tipo_Documento");
+            DropForeignKey("dbo.Localidad", "Provincia_Id", "dbo.Provincia");
             DropForeignKey("dbo.Expediente", "Tramite_Id", "dbo.Tramite");
             DropForeignKey("dbo.Documentacion", "Tipo_Tramite_Id", "dbo.Tipo_Tramite");
+            DropForeignKey("dbo.Direccion", "Persona_Id", "dbo.Persona");
             DropForeignKey("dbo.Calculo", "Tramite_Id", "dbo.Tramite");
             DropTable("dbo.Usuario");
-            DropTable("dbo.Tipo_Persona");
-            DropTable("dbo.Tipo_Documento");
             DropTable("dbo.Provincia");
             DropTable("dbo.Detalles_Tramite");
             DropTable("dbo.Tipo_Tramite");
             DropTable("dbo.Tramite");
+            DropTable("dbo.Tipo_Persona");
+            DropTable("dbo.Tipo_Documento");
             DropTable("dbo.Persona");
             DropTable("dbo.Localidad");
             DropTable("dbo.Expediente");

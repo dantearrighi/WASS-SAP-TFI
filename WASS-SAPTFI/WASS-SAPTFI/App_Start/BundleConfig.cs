@@ -13,8 +13,11 @@ namespace WASS_SAPTFI
                "~/Scripts/jquery-ui-{version}.js",
                "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"
+                      
+
                ));
 
+           
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -35,9 +38,13 @@ namespace WASS_SAPTFI
                                                                     "~/Content/css/bootstrap.min.css",
                                                                     "~/Content/css/simple-sidebar.css",
                                                                     "~/Content/css/font-awesome.min.css",
-                                                                    "~/Content/css/font-awesome.css"));
-
-            bundles.Add(new ScriptBundle("~/Content/js").Include( "~/Content/js/bootstrap.min.js",
+                                                                    "~/Content/css/font-awesome.css",
+                                                                     "~/Content/css/smart_wizard.css",       // WIZARD
+                                                                    "~/Content/css/smart_wizard_vertical.css" //WIZARD
+                                                                    ));
+                                                                               
+            bundles.Add(new ScriptBundle("~/Content/js").Include(  "~/Content/js/bootstrap.js",
+                                                                    "~/Content/js/bootstrap.min.js",
                                                                     "~/Content/js/sidebar_menu.js",
                                                                     "~/Content/js/jquery-1.11.2.min.js",
                                                                     "~/Content/js/jquery.js"));

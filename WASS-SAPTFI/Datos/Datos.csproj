@@ -45,21 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201607082033317_initial.cs" />
-    <Compile Include="Migrations\201607082033317_initial.Designer.cs">
-      <DependentUpon>201607082033317_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201607162034272_initial2.cs" />
+    <Compile Include="Migrations\201607162034272_initial2.Designer.cs">
+      <DependentUpon>201607162034272_initial2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201607082035104_agregue-el-celular.cs" />
-    <Compile Include="Migrations\201607082035104_agregue-el-celular.Designer.cs">
-      <DependentUpon>201607082035104_agregue-el-celular.cs</DependentUpon>
+    <Compile Include="Migrations\201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.cs" />
+    <Compile Include="Migrations\201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.Designer.cs">
+      <DependentUpon>201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201607082041188_agregue-la-Direccion-Persona.cs" />
-    <Compile Include="Migrations\201607082041188_agregue-la-Direccion-Persona.Designer.cs">
-      <DependentUpon>201607082041188_agregue-la-Direccion-Persona.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607082053103_agregue-algo.cs" />
-    <Compile Include="Migrations\201607082053103_agregue-algo.Designer.cs">
-      <DependentUpon>201607082053103_agregue-algo.cs</DependentUpon>
+    <Compile Include="Migrations\201607181642076_Add-Estado-Tramite-y-Persona.cs" />
+    <Compile Include="Migrations\201607181642076_Add-Estado-Tramite-y-Persona.Designer.cs">
+      <DependentUpon>201607181642076_Add-Estado-Tramite-y-Persona.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,17 +72,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201607082033317_initial.resx">
-      <DependentUpon>201607082033317_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607162034272_initial2.resx">
+      <DependentUpon>201607162034272_initial2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607082035104_agregue-el-celular.resx">
-      <DependentUpon>201607082035104_agregue-el-celular.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.resx">
+      <DependentUpon>201607172326150_CamposENVIADOPOR-DERIVADOA-FECHAALTA.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607082041188_agregue-la-Direccion-Persona.resx">
-      <DependentUpon>201607082041188_agregue-la-Direccion-Persona.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607082053103_agregue-algo.resx">
-      <DependentUpon>201607082053103_agregue-algo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607181642076_Add-Estado-Tramite-y-Persona.resx">
+      <DependentUpon>201607181642076_Add-Estado-Tramite-y-Persona.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
