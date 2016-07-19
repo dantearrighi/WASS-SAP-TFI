@@ -86,13 +86,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" class="btn btn-success" />
         </p>
     </form>
 }
 
 <div>
-    @Html.ActionLink("Volver a la lista", "Index")
+    @Html.ActionLink("Volver a la lista", "Index", "Persona", new { @class = "btn btn-danger" })
 </div>
 
 @section Scripts {

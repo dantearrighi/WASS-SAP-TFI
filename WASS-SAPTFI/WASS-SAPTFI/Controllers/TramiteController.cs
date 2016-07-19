@@ -11,6 +11,7 @@ using WASS_SAPTFI.ViewModels.Tramite;
 using WASS_SAPTFI.ViewModels.Persona;
 
 
+
 namespace WASS_SAPTFI.Controllers
 {
     public class TramiteController : Controller
@@ -19,7 +20,7 @@ namespace WASS_SAPTFI.Controllers
 
 
         TramiteVM modelAlta = new TramiteVM();
-
+        Detalle_TramiteVM dtvm = new Detalle_TramiteVM();
 
 
 
@@ -203,7 +204,35 @@ namespace WASS_SAPTFI.Controllers
         #endregion
 
 
+        public ActionResult ModificarTramite(int id = 0)
+        {
+            
+            Tramite t = db.Tramites.Find(id);
+            if (t == null)
+            {
+                return HttpNotFound();
+            }
 
+            CargarDTVMModificarTramite(t);
+            
+            return View("_ModificarTramite",dtvm);
+ 
+        }
+
+        private void CargarDTVMModificarTramite(Tramite t)
+        {
+            //Lista de Detalles 
+            dtvm.DetallesHistoricos = t.Detalles_Tramite.ToList();
+
+            //Datos Persona
+            dtvm.DNI = t.Persona.DNI;
+            dtvm.NombreYapellido = t.Persona.NombreYapellido;
+
+            //Datos Tramite
+            dtvm.TipoTramiteDescripcion = t.Tipo_Tramite.Descripcion;
+            dtvm.IdTramite = t.Id;
+            dtvm.Fecha_Alta = t.Fecha_Alta;
+        }
 
 
 
