@@ -18,14 +18,21 @@ namespace WASS_SAPTFI.Controllers
         //
         // GET: /Persona/
 
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm)
         {
 
-          // if (Request.IsAjaxRequest())
-          //  {
-          //      return PartialView("_ListaPersonas", db.Personas.ToList());
-          //  }
-            return View(db.Personas.ToList());
+
+            var model = db.Personas
+                        .OrderBy(p => p.NombreYapellido)
+                        .Where(p => p.NombreYapellido.ToLower().Contains(searchTerm) || searchTerm == null)
+                        .Select(p => p);
+           
+
+           if (Request.IsAjaxRequest())
+            {
+                return PartialView("_ListaPersonas", model);
+            }
+            return View(model);
         }
 
         //

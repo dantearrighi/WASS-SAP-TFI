@@ -14,6 +14,9 @@
                 Nombre y Apellido
             </th>
             <th>
+                Tipo de Trámite
+            </th>
+            <th>
                 Ultimo detalle
             </th>
             <th>
@@ -40,10 +43,14 @@
                     @Html.DisplayFor(modelItem => item.NombreYapellido)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Tipo_Tramite)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Ultimo_Detalle)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Ultimo_Movimiento)
+                   
+                    @item.Ultimo_Movimiento.ToShortDateString()
                 </td>
 
                 <td>

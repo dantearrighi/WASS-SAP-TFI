@@ -12,8 +12,8 @@ namespace WASS_SAPTFI
                "~/Scripts/jquery-{version}.js",
                "~/Scripts/jquery-ui-{version}.js",
                "~/Scripts/jquery.unobtrusive*",
-                        "~/Scripts/jquery.validate*"
-                      
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/wass.js"
 
                ));
 

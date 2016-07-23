@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Modelos.Persona>
 
+
+
 <div id="listapersonas">
 
     <table class="table table-striped">
@@ -26,36 +28,36 @@
 
             <th></th>
         </tr>
-       
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombreYapellido)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DNI)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Telefono)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Celular)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
 
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Consultar", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-                        <!--- SI SE INVOCA ESTA VISTA DESDE EL CONTROLADOR PERSONAS, MUESTRO LO ANTERIOR. SINO, DESHABILITO LOS BOTONES Y MUESTRO EL BTN SELECCIONAR-->
-                        
-                    </td>
-                </tr>
-            }
-      
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreYapellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DNI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Consultar", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    <!--- SI SE INVOCA ESTA VISTA DESDE EL CONTROLADOR PERSONAS, MUESTRO LO ANTERIOR. SINO, DESHABILITO LOS BOTONES Y MUESTRO EL BTN SELECCIONAR-->
+
+                </td>
+            </tr>
+        }
+
 
     </table>
 </div>

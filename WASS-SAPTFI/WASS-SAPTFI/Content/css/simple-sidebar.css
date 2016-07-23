@@ -142,7 +142,7 @@
         padding-left: 250px;
     }
     #wrapper.toggled-2 #page-content-wrapper {
-        position: relative;
+        position: absolute; /* esto estaba en relative. cambio a absolute x el fondo */
         margin-right: 0;
         margin-left: -200px;
         -webkit-transition: all 0.5s ease;

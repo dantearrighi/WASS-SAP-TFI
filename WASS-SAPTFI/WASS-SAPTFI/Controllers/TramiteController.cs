@@ -57,6 +57,8 @@ namespace WASS_SAPTFI.Controllers
                     }
                 }
 
+                ltvm.Tipo_Tramite = itemLista.Tipo_Tramite.Descripcion;
+
                 //Lo añado a la lista
                 listaTramites.Add(ltvm);
 

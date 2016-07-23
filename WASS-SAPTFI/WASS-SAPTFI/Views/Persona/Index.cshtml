@@ -10,6 +10,24 @@
     @Html.ActionLink("Añadir", "Create", "Persona", new { @class = "btn btn-primary" })
 </p>
 
-   
-    @Html.Partial("_ListaPersonas",Model)
+
+@using (Ajax.BeginForm(
+new AjaxOptions
+{
+    HttpMethod = "get",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "listapersonas"
+}))
+{
+   <div class="col-xs-3">
+     <input type="search" name="searchTerm" class="form-control" />
+       </div>
+    <p>
+         
+    </p>
+    <input type="submit" name="Buscar" class="btn btn-warning" value="Buscar" />
+}
+
+    @Html.Partial("_ListaPersonas", Model)
+
 
