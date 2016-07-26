@@ -9,11 +9,32 @@ using Modelos;
 using Datos;
 using WASS_SAPTFI.ViewModels.Persona;
 
+
 namespace WASS_SAPTFI.Controllers
 {
     public class PersonaController : Controller
     {
         private WASSDbContext db = new WASSDbContext();
+
+
+
+        //[HttpGet]
+        //Autocompletar para la busqueda
+        public ActionResult Autocomplete(string term)
+        {
+            var model = db.Personas
+                .Where(p => p.NombreYapellido.StartsWith(term))
+                .Take(10)
+                .Select(p => new
+                {
+                    label = p.NombreYapellido
+                });
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+
+
 
         //
         // GET: /Persona/
