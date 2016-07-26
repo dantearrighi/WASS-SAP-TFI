@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace WASS_SAPTFI.ViewModels.Tramite
 {
     public class ListaTramiteVM
@@ -16,5 +17,7 @@ namespace WASS_SAPTFI.ViewModels.Tramite
         public string Ultimo_Detalle { get; set; }
 
         public DateTime Ultimo_Movimiento  { get; set; }
+
+        public string Tipo_Tramite { get; set; }
     }
 }
