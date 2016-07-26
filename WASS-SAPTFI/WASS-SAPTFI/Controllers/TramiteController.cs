@@ -57,6 +57,8 @@ namespace WASS_SAPTFI.Controllers
                     }
                 }
 
+                ltvm.Tipo_Tramite = itemLista.Tipo_Tramite.Descripcion;
+
                 //Lo añado a la lista
                 listaTramites.Add(ltvm);
 
@@ -308,6 +310,16 @@ namespace WASS_SAPTFI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            var detalles = db.Detalles_Tramites
+                            .Where(dt => dt.Tramite.Id == id)
+                            .Select(dt => dt).ToList();
+
+            foreach (Detalles_Tramite item in detalles)
+            {
+                db.Detalles_Tramites.Remove(item);
+                db.SaveChanges();
+            }
+
             Tramite tramite = db.Tramites.Find(id);
             db.Tramites.Remove(tramite);
             db.SaveChanges();

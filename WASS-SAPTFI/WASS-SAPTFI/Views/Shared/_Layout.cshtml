@@ -104,6 +104,7 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
     @*Scripts.Render("~/Content/js")*@  
     
    </head>
@@ -117,7 +118,7 @@
             </button>
             <a class="navbar-brand" href="#"><i class="fa fa-legal fa-4"></i> W A S S</a>
         </div><!-- navbar-header-->
-               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
             <ul class="nav navbar-nav">
                 <li class="active"><button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button></li>
             </ul>
@@ -199,9 +200,9 @@
    @* <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sidebar_menu.js"></script>*@
-    @Scripts.Render("~/bundles/wasscript")
+    
     @Scripts.Render("~/Content/js")
-   
+   @Scripts.Render("~/bundles/wasscript")
     @RenderSection("scripts", required: false)
 </body>
 </html>

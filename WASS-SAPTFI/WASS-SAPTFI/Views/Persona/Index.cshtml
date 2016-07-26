@@ -10,6 +10,26 @@
     @Html.ActionLink("Añadir", "Create", "Persona", new { @class = "btn btn-primary" })
 </p>
 
-   
-    @Html.Partial("_ListaPersonas",Model)
+
+@*@using (Ajax.BeginForm(
+new AjaxOptions
+{
+    HttpMethod = "get",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "listapersonas"
+}))*@
+
+<form method="get" action="@Url.Action("Index")"  data-wass-ajax="true" data-wass-target="#listapersonas">
+    
+    <div class="col-xs-3">
+        <input type="search" name="searchTerm" data-wass-autocomplete="@Url.Action("Autocomplete","Persona")" class="form-control" />
+    </div>
+    <p>
+
+    </p>
+    <input type="submit" name="Buscar" class="btn btn-warning" value="Buscar" />
+    
+</form>
+    @Html.Partial("_ListaPersonas", Model)
+
 
