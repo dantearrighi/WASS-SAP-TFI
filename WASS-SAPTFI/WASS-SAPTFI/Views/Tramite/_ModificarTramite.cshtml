@@ -15,7 +15,22 @@
     <div class="panel panel-default panel-primary">
         <!-- Default panel contents -->
         <div class="panel-heading">
-            Información del Trámite Número: <span class="badge" style="text-align:end">@Model.IdTramite</span>
+            Información del Trámite Número: <span class="badge" style="text-align:end">@Model.IdTramite</span> 
+            
+            <div  class="btn-group">
+            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Realizar cálculo <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Cálculos anteriores</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Ley 24.241</a></li>
+        <li><a href="#">Haber veterano malvina</a></li>
+        <li><a href="#">Otro cálculo</a></li>
+     
+    </ul>
+</div>
         </div>
         <div class="panel-body">
             <table class="table ">
