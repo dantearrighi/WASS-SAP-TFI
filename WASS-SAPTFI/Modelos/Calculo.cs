@@ -9,11 +9,14 @@ namespace Modelos
 {
   public  class Calculo
     {
-       [Key]
+        [Key]
         public int Id { get; set; }
+
+        public int idTramite { get; set; }
+
         public string Descripcion { get; set; }
 
-        
+
 
 
     }

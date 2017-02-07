@@ -1,24 +1,33 @@
-﻿using System;
+﻿using Datos;
+using Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using WASS_SAPTFI.ViewModels.Calculo;
 
 namespace WASS_SAPTFI.Controllers.Calculos
 {
     public class CalculoController : Controller
     {
 
-
+        
 
 
         //
-        // GET: /Tramite/
+        // GET: /Calculos/RealizarCalculo/id
 
-        public ActionResult Index()
+        public ActionResult Index(int id = 0)
         {
-            return View(db.Tramites.ToList());
+            //Obtengo el tramite al cual le voy a realizar el cálculo
+            calculovm.Tramite = db.Tramites.Find(id);
+            if (calculovm.Tramite == null)
+            {
+                return HttpNotFound();
+            }
+            
+            return View("_AltaCalculo",calculovm);
         }
 
 
@@ -26,7 +35,8 @@ namespace WASS_SAPTFI.Controllers.Calculos
 
 
         //VARIABLES
-
+        private WASSDbContext db = new WASSDbContext();
+        CalculoVM calculovm = new CalculoVM();
         private DatosCalculo _datos = new DatosCalculo();
         private CalculoStrategy _calculoStrategy;
         

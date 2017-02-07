@@ -1,0 +1,78 @@
+﻿@model WASS_SAPTFI.ViewModels.Calculo.CalculoVM
+@{
+    ViewBag.Title = "Realizar calculo: Ley 24241";
+}
+
+@using (Html.BeginForm("Calcular", "Calculo", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+
+    <h2>Realizar cálculo: Ley 24241</h2>
+    <hr />
+    <div class="panel panel-default panel-primary">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            Cálculo del Trámite Número: <span class="badge" style="text-align:end">@Model.Tramite.Id</span>
+
+          @Model.Calculo.
+        </div>
+        <div class="panel-body">
+            <table class="table ">
+                <tr>
+                    <td>
+                        <div class="panel panel-default panel-info">
+                            <div class="panel-heading">Datos Personales</div>
+                            <div class="panel-body">
+
+                                @Html.Label("model.Tramite.Persona.NombreYapellido", "Nombre y Apellido")
+                                @Html.TextBoxFor(model => model.Tramite.Persona.NombreYapellido, new { @class = "form-control", disabled = "disabled" })
+                                @Html.Label("model.Tramite.Persona.DNI", "Documento")
+                                @Html.TextBoxFor(model => model.Tramite.Persona.DNI, new { @class = "form-control", disabled = "disabled" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="panel panel-default panel-info">
+                            <div class="panel-heading">Datos Básicos</div>
+                            <div class="panel-body">
+
+                                @Html.Label("model.Calculo.Descripción", "Cálculo a realizar")
+                                @Html.TextBoxFor(model => model.Calculo.Descripcion, new { @class = "form-control", disabled = "disabled" })
+                               
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel panel-default panel-info">
+            <div class="panel-heading">Movimientos Históricos</div>
+            <div class="panel-body">
+               
+            </div>
+
+        </div>
+        <p>
+            <input type="submit" value="Calcular" class="btn btn-success" />
+        </p>
+
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Volver al trámite", "ModificarTramite", "Tramite",new { id = Model.Tramite.Id}, new { @class = "btn btn-danger" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+

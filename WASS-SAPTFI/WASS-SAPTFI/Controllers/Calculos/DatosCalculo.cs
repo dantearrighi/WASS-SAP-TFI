@@ -6,9 +6,6 @@ using System.Web;
 namespace WASS_SAPTFI.Controllers.Calculos
 {
     public class DatosCalculo
-    {
-
-        public class DatosCalculo
         {
 
             //PC
@@ -41,4 +38,3 @@ namespace WASS_SAPTFI.Controllers.Calculos
             public string txtHaberVeterano { get; set; }
         }
     }
-}
