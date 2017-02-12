@@ -27,7 +27,7 @@ namespace WASS_SAPTFI.Controllers.Calculos
                 return HttpNotFound();
             }
             
-            return View("_AltaCalculo",calculovm);
+            return View("_AltaCalculo_24241",calculovm);
         }
 
 
@@ -47,14 +47,14 @@ namespace WASS_SAPTFI.Controllers.Calculos
             this._calculoStrategy = _Pcalculostrategy;
         }
 
-        
+        /*
         //ACCION CALCULAR
         public DatosCalculo Calcular(DatosCalculo _datos)
         {
             return _calculoStrategy.RealizarCalculo(_datos);
 
         }
-
+        */
 
     }
 }
