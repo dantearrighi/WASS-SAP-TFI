@@ -3,11 +3,12 @@
     ViewBag.Title = "Modificar";
 }
 
-@using (Html.BeginForm("ModificarTramite", "Tramite", FormMethod.Post))
+@using (Html.BeginForm("AñadirDetalle", "Tramite", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model=> model.IdTramite)
 
 
     <h2>Modificar Trámite</h2>
@@ -15,7 +16,7 @@
     <div class="panel panel-default panel-primary">
         <!-- Default panel contents -->
         <div class="panel-heading">
-            Información del Trámite Número: <span class="badge" style="text-align:end">@Model.IdTramite</span> 
+            Información del Trámite Número: <span class="badge" id="NumeroDeTramite" style="text-align:end">@Model.IdTramite</span> 
             
             <div  class="btn-group">
             <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,6 +66,21 @@
         <div class="panel panel-default panel-info">
             <div class="panel-heading">Movimientos Históricos</div>
             <div class="panel-body">
+
+    @Html.TextAreaFor(m => m.DetalleNuevo.Descripcion, new { @class = "form-control", placeholder="Ingrese aquí el detalle del movimiento"})
+     @Html.ValidationMessage("DetalleNuevo.Descripcion", new { @class = "bg-danger" })
+    
+     
+    @Html.EditorFor(model => model.DetalleNuevo.Fecha_Desde, new { id = "fecha_desde_nuevotramite", type = "date" })
+   
+          @Html.ValidationMessage("DetalleNuevo.Fecha_Desde", new { @class = "bg-danger" })
+
+
+            
+
+               
+
+
                 <!-- Table -->
                 <table class="table">
                     <tr>
@@ -77,21 +93,12 @@
             {
                         <tr>
                             <td>
-
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon3">@item.Fecha_Desde.ToShortDateString()</span>
                                     <input type="text" class="form-control" id="fecha_desde" aria-describedby="basic-addon3" disabled="disabled" value="@item.Descripcion">
                                 </div>
                             </td>
-                            @*<td>
-
-                                    @Html.DisplayFor(modelItem => item.Fecha_Desde)
-                                </td>
-                                <td>
-                                    @Html.TextAreaFor(modelItem => item.Descripcion)
-                                </td>*@
-
-                        </tr>
+                         </tr>
             }
                     </table>
               </div>
@@ -111,6 +118,8 @@
 
             @section Scripts {
                 @Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/Content/themes/base/css")
+
             }
 
 

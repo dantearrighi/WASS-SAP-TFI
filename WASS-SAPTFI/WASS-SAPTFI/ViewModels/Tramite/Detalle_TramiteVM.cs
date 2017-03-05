@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Modelos;
+using System.ComponentModel.DataAnnotations;
 
 namespace WASS_SAPTFI.ViewModels.Tramite
 {
@@ -18,6 +19,9 @@ namespace WASS_SAPTFI.ViewModels.Tramite
         public string Descripcion { get; set; }
 
         public List<Detalles_Tramite> DetallesHistoricos { get; set; }
+
+        //DETALLE NUEVO
+        public Detalles_Tramite DetalleNuevo { get; set; }
 
 
         //DATOS DEL TRAMITE

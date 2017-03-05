@@ -24,7 +24,34 @@ namespace WASS_SAPTFI.Controllers
 
 
 
+
+
+
+
+
         #region /-/-/-/-/-/-/-/-/---->              G E S T I O N A R   T R A M I T E S              <----/-/-/-/-/-/-/-/-/-/
+
+
+        public ActionResult Autocomplete(string term)
+        {
+            var model = db.Tramites
+                .Where(p => p.Persona.NombreYapellido.StartsWith(term))
+                .Take(10)
+                .Select(p => new
+                {
+                    label = p.Persona.NombreYapellido
+                });
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+
+
+
+
 
 
         //------------> LISTA de Tramites 
@@ -235,6 +262,41 @@ namespace WASS_SAPTFI.Controllers
             dtvm.IdTramite = t.Id;
             dtvm.Fecha_Alta = t.Fecha_Alta;
         }
+
+
+        //AÑADIR DETALLE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AñadirDetalle(Detalle_TramiteVM ddttvm)
+        {
+          
+            Tramite t = db.Tramites.Find(ddttvm.IdTramite);
+
+            if (t != null)
+            {
+                //Añado a la bd el detalle nuevo
+                db.Detalles_Tramites.Add(ddttvm.DetalleNuevo);
+               //Guardo los cambios
+                db.SaveChanges();
+
+                //Al tramite seleccionado, le agrego el detalle ya guardado
+                t.Detalles_Tramite.Add(ddttvm.DetalleNuevo);
+
+                //Cambio el estado
+              //  db.Entry(t).State = EntityState.Modified;
+
+                //Guardo los cambios
+                db.SaveChanges();
+
+                CargarDTVMModificarTramite(t);
+                ModelState.Clear();
+                return View("_ModificarTramite",dtvm);
+            }
+            return RedirectToAction("Index");
+        }
+
+
+
 
 
 

@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Modelos.Persona>
+@using TwitterBootstrapMVC;
+@using TwitterBootstrap2;
 
 @{
     ViewBag.Title = "WASS- Gestión de Personas";
@@ -6,8 +8,9 @@
 
 <h2>Gestión de Personas</h2>
 
+
 <p>
-    @Html.ActionLink("Añadir", "Create", "Persona", new { @class = "btn btn-primary" })
+  
 </p>
 
 
@@ -20,16 +23,38 @@ new AjaxOptions
 }))*@
 
 <form method="get" action="@Url.Action("Index")"  data-wass-ajax="true" data-wass-target="#listapersonas">
-    
-    <div class="col-xs-3">
-        <input type="search" name="searchTerm" data-wass-autocomplete="@Url.Action("Autocomplete","Persona")" class="form-control" />
-    </div>
-    <p>
+    <table>
+        <tbody>
+            <tr>
+                <td>
 
-    </p>
-    <input type="submit" name="Buscar" class="btn btn-warning" value="Buscar" />
-    
+
+                    @using (var g = Html.Bootstrap().Begin(new ButtonGroup()))
+                    {
+                    @g.ActionLinkButton("Añadir", "Create", "Persona").Style(ButtonStyle.Primary)
+                    using (var dd = g.BeginDropDown(new DropDown("Filtrar por").AlignTo("right").Style(ButtonStyle.Primary)))
+                    {
+                        
+                        
+                        @dd.ActionLink("Personas activas", "FiltrarPersonasActivas", "Persona")
+                        @dd.Divider()
+                        @dd.ActionLink("Personas inactivas", "FiltrarPersonasInactivas", "Persona")
+                    }
+                    }
+                   
+                </td>
+                <td class="col-xs-3">
+                    <input type="search" name="searchTerm" data-wass-autocomplete="@Url.Action("Autocomplete","Persona")" class="form-control" />
+                </td>
+                <td>
+                    <input type="submit" name="Buscar" class="btn btn-warning" value="Buscar" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </form>
+
+
     @Html.Partial("_ListaPersonas", Model)
 
 

@@ -12,10 +12,10 @@ namespace Modelos
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Es obligatorio ingresar un Nombre y Apellido")]
+        [Required(ErrorMessage = "Es obligatorio ingresar Nombre y Apellido")]
         public string NombreYapellido { get; set; }
 
-        [Required(ErrorMessage = "Es obligatorio ingresar un número de documento")]
+        [Required(ErrorMessage = "Es obligatorio ingresar el número de documento")]
         public string DNI { get; set; }
 
         
@@ -40,6 +40,7 @@ namespace Modelos
 
         [Required]
         [DataType(DataType.EmailAddress,ErrorMessage="Es obligatorio ingresar un Email")]
+    
         public string Email { get; set; }
 
         public string Clave_Fiscal { get; set; }

@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TwitterBootstrapMVC;
 
 namespace WASS_SAPTFI
 {
@@ -22,6 +23,7 @@ namespace WASS_SAPTFI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Bootstrap.Configure();
         }
     }
 }

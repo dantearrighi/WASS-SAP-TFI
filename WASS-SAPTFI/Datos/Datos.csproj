@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201702122030364_calculo.Designer.cs">
       <DependentUpon>201702122030364_calculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703050137075_FechaenDetalle.cs" />
+    <Compile Include="Migrations\201703050137075_FechaenDetalle.Designer.cs">
+      <DependentUpon>201703050137075_FechaenDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WASSDbContext.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702122030364_calculo.resx">
       <DependentUpon>201702122030364_calculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703050137075_FechaenDetalle.resx">
+      <DependentUpon>201703050137075_FechaenDetalle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

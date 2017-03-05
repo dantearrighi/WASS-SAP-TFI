@@ -12,10 +12,12 @@ namespace Modelos
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Es obligatorio ingresar una descripción del movimiento.")]
         public string Descripcion { get; set; }
 
-        [DataType(DataType.DateTime)]
+        
+        [Required(ErrorMessage = "Es obligatorio ingresar la fecha del movimiento.")]
+        [DataType(DataType.Date)]
         public DateTime Fecha_Desde { get; set; }
 
         public virtual Tramite Tramite { get; set; }
