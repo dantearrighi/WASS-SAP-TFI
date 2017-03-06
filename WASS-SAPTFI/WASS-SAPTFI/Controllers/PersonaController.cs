@@ -14,7 +14,7 @@ namespace WASS_SAPTFI.Controllers
 {
     public class PersonaController : Controller
     {
-        private WASSDbContext db = new WASSDbContext();
+       private WASSDbContext db = new WASSDbContext();
 
 
 
@@ -41,19 +41,48 @@ namespace WASS_SAPTFI.Controllers
 
         public ActionResult Index(string searchTerm)
         {
-            var model = db.Personas
-                        .OrderBy(p => p.NombreYapellido)
-                        .Where(p => p.NombreYapellido.ToLower().Contains(searchTerm) || searchTerm == null)
-                        .Select(p => p);
-            
+           
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_ListaPersonas", model);
+                 return PartialView("_ListaPersonas", ObtenerListaPersonas(searchTerm));
             }
+            
 
-            return View(model);
+            return View(ObtenerListaPersonas(searchTerm));
 
         }
+
+        public List<Persona> ObtenerListaPersonas(string filtro)
+        {
+            //Armo la lista
+            List<Persona> listaPersona = new List<Persona>();
+            listaPersona.Clear();
+
+        //Si ingrese parametro de busqueda
+           if(filtro != null)
+           { 
+               //recorro la lista
+                foreach(Persona p in db.Personas.ToList())
+                {
+                   //Si el parametro coincide con el nombre y apellido
+                    if (p.NombreYapellido.ToLower().StartsWith(filtro.ToLower()))
+                    {
+                        //agrego la persona
+                        listaPersona.Add(p);
+                    }
+                }
+                
+           }//NO INGRESE PARAMETRO DE BUSQUEDA
+           else
+           {
+               listaPersona = db.Personas.ToList();
+           }
+
+
+           return listaPersona;
+        }
+
+
 
         //
         // GET: /Persona/Details/5

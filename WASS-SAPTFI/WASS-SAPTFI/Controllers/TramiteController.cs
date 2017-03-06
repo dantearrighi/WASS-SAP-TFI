@@ -35,8 +35,8 @@ namespace WASS_SAPTFI.Controllers
         public ActionResult Autocomplete(string term)
         {
             
-            var model = ObtenerListaTramites()
-                .Where(p => p.NombreYapellido.StartsWith(term))
+            var model = ObtenerListaTramites(term)
+                .Where(p => p.NombreYapellido.ToLower().StartsWith(term))
                 .Take(10)
                 .Select(p => new
                 {
@@ -323,13 +323,13 @@ namespace WASS_SAPTFI.Controllers
 
             if (Request.IsAjaxRequest())
             {
-                 return PartialView("_ListaTramites", ObtenerListaTramites());
+                return PartialView("_ListaTramites", ObtenerListaTramites(searchTerm));
             }
             else
             {
 
-                //Corro la vista parcial _ListaTramites
-                return View(ObtenerListaTramites());
+                //Corro la vista 
+                return View(ObtenerListaTramites(searchTerm));
 
             }        
             
@@ -337,7 +337,7 @@ namespace WASS_SAPTFI.Controllers
 
 
 
-        public List<ListaTramiteVM> ObtenerListaTramites()
+        public List<ListaTramiteVM> ObtenerListaTramites(string filtro)
         {
             //Armo la lista
             List<ListaTramiteVM> listaTramites = new List<ListaTramiteVM>();
@@ -367,8 +367,23 @@ namespace WASS_SAPTFI.Controllers
 
                 ltvm.Tipo_Tramite = itemLista.Tipo_Tramite.Descripcion;
 
-                //Lo añado a la lista
-                listaTramites.Add(ltvm);
+                //Si ingrese un parametro de busqueda
+                if(filtro != null)
+                {
+                    //Y el parametro coincide con el nombre y apellido
+                    if(ltvm.NombreYapellido.ToLower().StartsWith(filtro.ToLower()))
+                    {
+                        //agrego el tramite
+                        listaTramites.Add(ltvm);
+                    }
+                }
+                else//No ingrese parametro de busqueda -> Añado todos
+                {
+                    //Lo añado a la lista
+                    listaTramites.Add(ltvm);
+
+                }
+                
 
             }
 

@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<Modelos.Persona>
-@using TwitterBootstrapMVC;
-@using TwitterBootstrap2;
 
 @{
     ViewBag.Title = "WASS- Gestión de Personas";
@@ -9,23 +7,10 @@
 <h2>Gestión de Personas</h2>
 
 
-<p>
-  
-</p>
-
-
-@*@using (Ajax.BeginForm(
-new AjaxOptions
-{
-    HttpMethod = "get",
-    InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "listapersonas"
-}))*@
-
 <form method="get" action="@Url.Action("Index")" data-wass-ajax="true" data-wass-target="#listapersonas">
     <table>
         <tbody>
-            <tr class="row">
+            <tr>
                 <td>
 
 
