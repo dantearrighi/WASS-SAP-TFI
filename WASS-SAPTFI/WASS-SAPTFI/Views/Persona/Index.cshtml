@@ -25,7 +25,7 @@ new AjaxOptions
 <form method="get" action="@Url.Action("Index")" data-wass-ajax="true" data-wass-target="#listapersonas">
     <table>
         <tbody>
-            <tr>
+            <tr class="row">
                 <td>
 
 
@@ -43,7 +43,7 @@ new AjaxOptions
                     }
                    
                 </td>
-                <td class="col-xs-3">
+                <td class="col-xs-6">
                     <input type="search" name="searchTerm" data-wass-autocomplete="@Url.Action("Autocomplete","Persona")" class="form-control" />
                 </td>
                 <td>
@@ -53,7 +53,7 @@ new AjaxOptions
         </tbody>
     </table>
 </form>
-
+<hr class="colorgraph">
 
     @Html.Partial("_ListaPersonas", Model)
 

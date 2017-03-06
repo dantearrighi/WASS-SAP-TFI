@@ -319,17 +319,17 @@ namespace WASS_SAPTFI.Controllers
                         .Where(p => p.NombreYapellido.ToLower().Contains(searchTerm) || searchTerm == null)
                         .Select(p => p);*/
 
-            var model = ObtenerListaTramites().Where(ol => ol.NombreYapellido.ToLower().Contains(searchTerm) || searchTerm == null);
+        //    var model = ObtenerListaTramites().Where(ol => ol.NombreYapellido.ToLower().Contains(searchTerm) || searchTerm == null);
 
             if (Request.IsAjaxRequest())
             {
-                 return PartialView("_ListaTramites", model);
+                 return PartialView("_ListaTramites", ObtenerListaTramites());
             }
             else
             {
 
                 //Corro la vista parcial _ListaTramites
-                return View(model);
+                return View(ObtenerListaTramites());
 
             }        
             

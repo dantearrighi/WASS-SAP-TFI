@@ -40,7 +40,8 @@ namespace WASS_SAPTFI
                                                                     "~/Content/css/bootstrap.css",
                                                                     "~/Content/css/bootstrap.min.css",
                                                                     "~/Content/css/jquery-ui.css",
-                                                                     "~/Content/themes/base/jquery.ui.autocomplete.css"
+                                                                     "~/Content/themes/base/jquery.ui.autocomplete.css",
+                                                                     "~/Content/themes/base/colorbar.css"
                                                                     ));
                                                                                
             bundles.Add(new ScriptBundle("~/Content/js").Include(  "~/Content/js/bootstrap.js",
