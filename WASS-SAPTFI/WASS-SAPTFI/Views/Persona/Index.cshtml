@@ -24,6 +24,13 @@
                         @dd.ActionLink("Personas activas", "FiltrarPersonasActivas", "Persona")
                         @dd.Divider()
                         @dd.ActionLink("Personas inactivas", "FiltrarPersonasInactivas", "Persona")
+                        @dd.Divider()
+                        @dd.AjaxActionLink("Mostrar todo","Index","Persona", new AjaxOptions
+                 {
+                     UpdateTargetId = "listapersonas", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
                     }
                     }
                    

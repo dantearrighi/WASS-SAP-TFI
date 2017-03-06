@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Modelos.Persona>
+<div id="listaSeleccionarPersonas">
+
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Nombre y Apellido
+            </th>
+            <th>
+                Documento
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreYapellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DNI)
+                </td>
+                <td>
+                    @Html.ActionLink("Seleccionar", "SeleccionarPersona", new { id = item.Id }, new { @class = "btn btn-info btn-xs" })
+                </td>
+            </tr>
+        }
+
+
+    </table>
+</div>
+

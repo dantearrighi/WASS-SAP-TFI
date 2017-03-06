@@ -25,7 +25,12 @@
                             @dd.Divider()
                             @dd.ActionLink("Tramites finalizados", "FiltrarTramitesFinalizados", "Tramite")
                             @dd.Divider()
-                            @dd.ActionLink("Mostrar todos","Index","Tramite")
+                            @dd.AjaxActionLink("Mostrar todos", "Index", "Tramite", new AjaxOptions
+                 {
+                     UpdateTargetId = "listatramites", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
                         }
                     }
 

@@ -126,9 +126,38 @@ namespace WASS_SAPTFI.Controllers
         
         
         //LISTA DE PERSONAS PARA SELECCIONAR
-        public ActionResult BuscarPersona()
+        public ActionResult BuscarPersona(string searchTerm)
         {
-            return View("_SeleccionarPersonaLista", db.Personas);
+            if (Request.IsAjaxRequest())
+            {
+
+            }
+
+            return View("_SeleccionarPersonaLista", ObtenerListaPersonas(searchTerm));
+        }
+
+
+        public List<Persona> ObtenerListaPersonas(string searchTerm)
+        {
+            List<Persona> lista = new List<Persona>();
+            lista.Clear();
+
+            if (searchTerm == null)
+            {
+                lista = db.Personas.ToList();
+            }
+            else 
+            {
+                foreach (Persona p in db.Personas.ToList())
+                {
+                    if (p.NombreYapellido.ToLower().StartsWith(searchTerm.ToLower()))
+                    {
+                        lista.Add(p);
+                    }
+                }
+            }
+            return lista;
+
         }
 
         //SELECCIONAR UNA PERSONA

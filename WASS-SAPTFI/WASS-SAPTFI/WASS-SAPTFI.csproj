@@ -349,6 +349,7 @@
     <Content Include="Views\Tramite\_SeleccionarPersonaLista.cshtml" />
     <Content Include="Views\Tramite\_ModificarTramite.cshtml" />
     <Content Include="Views\Calculo\_AltaCalculo_24241.cshtml" />
+    <Content Include="Views\Tramite\_ListaPersonasTramite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
