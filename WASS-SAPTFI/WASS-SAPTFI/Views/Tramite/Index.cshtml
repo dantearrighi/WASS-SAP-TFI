@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Modelos.Tramite>
+﻿@model IEnumerable<WASS_SAPTFI.ViewModels.Tramite.ListaTramiteVM>
 
 @{
     ViewBag.Title = "WASS- Gestion de Trámites";
@@ -16,8 +16,7 @@
 
                     @using (var g = Html.Bootstrap().Begin(new ButtonGroup()))
                     {
-                        
-                        @g.ActionLinkButton("Añadir", "Create", "Tramite").Style(ButtonStyle.Primary)
+                    @g.ActionLinkButton("Añadir", "Create", "Tramite").Style(ButtonStyle.Primary)
                         using (var dd = g.BeginDropDown(new DropDown("Filtrar por").AlignTo("right").Style(ButtonStyle.Primary)))
                         {
 
@@ -41,7 +40,7 @@
 </form>
 
 
-@Html.Action("ListarTramites", "Tramite")
+@Html.Partial("_ListaTramites", Model)
 
 
 

@@ -41,19 +41,18 @@ namespace WASS_SAPTFI.Controllers
 
         public ActionResult Index(string searchTerm)
         {
-
-
             var model = db.Personas
                         .OrderBy(p => p.NombreYapellido)
                         .Where(p => p.NombreYapellido.ToLower().Contains(searchTerm) || searchTerm == null)
                         .Select(p => p);
-           
-
-           if (Request.IsAjaxRequest())
+            
+            if (Request.IsAjaxRequest())
             {
                 return PartialView("_ListaPersonas", model);
             }
+
             return View(model);
+
         }
 
         //

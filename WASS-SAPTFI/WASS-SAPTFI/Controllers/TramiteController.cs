@@ -34,13 +34,16 @@ namespace WASS_SAPTFI.Controllers
 
         public ActionResult Autocomplete(string term)
         {
-            var model = db.Tramites
-                .Where(p => p.Persona.NombreYapellido.StartsWith(term))
+            
+            var model = ObtenerListaTramites()
+                .Where(p => p.NombreYapellido.StartsWith(term))
                 .Take(10)
                 .Select(p => new
                 {
-                    label = p.Persona.NombreYapellido
+                    label = p.NombreYapellido
                 });
+
+           
 
             return Json(model, JsonRequestBehavior.AllowGet);
         }
@@ -89,6 +92,12 @@ namespace WASS_SAPTFI.Controllers
                 //Lo añado a la lista
                 listaTramites.Add(ltvm);
 
+            }
+
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_ListaTramites", listaTramites);
             }
 
             //Corro la vista parcial _ListaTramites
@@ -303,10 +312,72 @@ namespace WASS_SAPTFI.Controllers
         //
         // GET: /Tramite/
 
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm)
         {
-            return View(db.Tramites.ToList());
+           /* var model =  ObtenerListaTramites()
+                        .OrderBy(p => p.NombreYapellido)
+                        .Where(p => p.NombreYapellido.ToLower().Contains(searchTerm) || searchTerm == null)
+                        .Select(p => p);*/
+
+            var model = ObtenerListaTramites().Where(ol => ol.NombreYapellido.ToLower().Contains(searchTerm) || searchTerm == null);
+
+            if (Request.IsAjaxRequest())
+            {
+                 return PartialView("_ListaTramites", model);
+            }
+            else
+            {
+
+                //Corro la vista parcial _ListaTramites
+                return View(model);
+
+            }        
+            
         }
+
+
+
+        public List<ListaTramiteVM> ObtenerListaTramites()
+        {
+            //Armo la lista
+            List<ListaTramiteVM> listaTramites = new List<ListaTramiteVM>();
+            listaTramites.Clear();
+
+            //Para cada uno de los tramites
+            foreach (Tramite itemLista in db.Tramites.ToList())
+            {
+                ListaTramiteVM ltvm = new ListaTramiteVM();
+
+                //Mapeo los datos entre los tramites y el TramiteViewModel
+                ltvm.Id = itemLista.Id;
+                ltvm.DNI = itemLista.Persona.DNI;
+                ltvm.NombreYapellido = itemLista.Persona.NombreYapellido;
+                itemLista.Detalles_Tramite.ToList();
+
+                //Obtengo la descripción correspondiente a la ultima fecha y la fecha
+                foreach (Detalles_Tramite dt in itemLista.Detalles_Tramite.ToList())
+                {
+                    //Si la fecha del detalle es la ultima, me quedo con el dato descripcion y fecha
+                    if (dt.Fecha_Desde == dt.Tramite.Detalles_Tramite.OrderByDescending(dddt => dddt.Fecha_Desde).FirstOrDefault().Fecha_Desde)
+                    {
+                        ltvm.Ultimo_Detalle = dt.Descripcion;
+                        ltvm.Ultimo_Movimiento = dt.Fecha_Desde;
+                    }
+                }
+
+                ltvm.Tipo_Tramite = itemLista.Tipo_Tramite.Descripcion;
+
+                //Lo añado a la lista
+                listaTramites.Add(ltvm);
+
+            }
+
+            return listaTramites;
+        }
+
+
+    
+
 
         //
         // GET: /Tramite/Details/5
