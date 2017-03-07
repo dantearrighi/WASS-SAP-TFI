@@ -5,12 +5,10 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
-    
-       
+      
     var listaTT = new SelectList(Model.Lista_Tipos_Tramite, "Id", "Descripcion");
-        
-        
+        <h2>Gestión de trámites <small>Añadir trámite</small></h2>
+        <hr class="colorgraph">
         <ul class="nav nav-tabs">
             <li class="active"><a href="#datospersonales">1- Datos Personales</a></li>
             <li><a href="#infoTramite">2- Información del Tramite</a></li>
@@ -156,8 +154,7 @@
             <!---FIN GUARDAR TRAMITE-->
 
         </div> <!---END TABS-->
-        
-        <hr>
+      <hr class="colorgraph">
         
            
         

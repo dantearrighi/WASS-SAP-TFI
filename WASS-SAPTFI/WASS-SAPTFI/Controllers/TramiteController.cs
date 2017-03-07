@@ -130,6 +130,7 @@ namespace WASS_SAPTFI.Controllers
         {
             if (Request.IsAjaxRequest())
             {
+                return PartialView("_ListaPersonasTramite", ObtenerListaPersonas(searchTerm));
 
             }
 

@@ -1,29 +1,16 @@
 ﻿@model Modelos.Persona
 @using TwitterBootstrapMVC;
 @using TwitterBootstrap2;
-
-
-
 @{
     ViewBag.Title = "Create";
-}
-
-
-
-  
+} 
 @*
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "Debe corregir los siguientes errores:", new { @class="bg-danger"})
 *@
-    
-    
-    
-    
-    
-    
-    <div class="container">
-
+   
+<div class="container">
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-10 col-sm-offset-2 col-md-offset-0">
 		@using (Html.BeginForm()){
@@ -33,7 +20,7 @@
             <div>
     @Html.ActionLink("Volver a la lista", "Index", "Persona", new { @class = "btn btn-danger" })
 </div>
-			 <hr class="colorgraph">
+<hr class="colorgraph">
     <div class="panel panel-primary">
         <div class="panel-heading">Datos básicos</div>
         <div class="panel-body">

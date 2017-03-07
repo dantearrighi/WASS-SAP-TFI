@@ -1,41 +1,42 @@
 ﻿@model IEnumerable<Modelos.Persona>
-
 <h2>Alta de Trámite: Seleccionar persona</h2>
-
-<!--- BUSCAR PERSONA O AÑADIR NUEVA-->
-@Html.ActionLink("Añadir", "Create", "Persona")
-<p> </p>
-
-<div id="listapersonas">
-
-    <table class="table table-striped">
-        <tr>
-            <th>
-                Nombre y Apellido
-            </th>
-            <th>
-                Documento
-            </th>
-          
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+<form method="get" action="@Url.Action("BuscarPersona")" data-wass-ajax="true" data-wass-target="#listaSeleccionarPersonas">
+    <table>
+        <tbody>
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NombreYapellido)
+
+
+                    @using (var g = Html.Bootstrap().Begin(new ButtonGroup()))
+                    {
+                        @g.ActionLinkButton("Añadir", "Create", "Persona").Style(ButtonStyle.Primary)
+                        using (var dd = g.BeginDropDown(new DropDown("Filtrar por").AlignTo("right").Style(ButtonStyle.Primary)))
+                        {
+
+
+                            @dd.ActionLink("Personas activas", "FiltrarPersonasActivas", "Persona")
+                            @dd.Divider()
+                            @dd.ActionLink("Personas inactivas", "FiltrarPersonasInactivas", "Persona")
+                            @dd.Divider()
+                            @dd.AjaxActionLink("Mostrar todo", "BuscarPersona", "Tramite", new AjaxOptions
+                 {
+                     UpdateTargetId = "listaSeleccionarPersonas", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+                        }
+                    }
+
+                </td>
+                <td class="col-xs-6">
+                    <input type="search" name="searchTerm" data-wass-autocomplete="@Url.Action("Autocomplete","Persona")" class="form-control" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DNI)
-                </td>
-                <td>
-                    @Html.ActionLink("Seleccionar", "SeleccionarPersona", new {id = item.Id })
+                    <input type="submit" name="Buscar" class="btn btn-warning" value="Buscar" />
                 </td>
             </tr>
-        }
-
-
+        </tbody>
     </table>
-</div>
-
+</form>
+<hr class="colorgraph">
+@Html.Partial("_ListaPersonasTramite", Model)
