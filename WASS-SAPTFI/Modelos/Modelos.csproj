@@ -43,6 +43,9 @@
     <Compile Include="Calculo.cs" />
     <Compile Include="Detalles_Tramite.cs" />
     <Compile Include="Direccion.cs" />
+    <Compile Include="DocLaboral.cs" />
+    <Compile Include="DocPersonal.cs" />
+    <Compile Include="DocSalud.cs" />
     <Compile Include="Documentacion.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Expediente.cs" />
@@ -55,6 +58,9 @@
     <Compile Include="Tipo_Tramite.cs" />
     <Compile Include="Tramite.cs" />
     <Compile Include="Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

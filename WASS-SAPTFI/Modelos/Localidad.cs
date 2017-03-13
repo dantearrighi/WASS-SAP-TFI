@@ -17,5 +17,7 @@ namespace Modelos
 
        [Required]
         public int Codigo_Postal { get; set; }
+
+       public virtual ICollection<Direccion> Direcciones{ get; set; }
     }
 }

@@ -47,14 +47,14 @@ namespace WASS_SAPTFI.Controllers.Calculos
             this._calculoStrategy = _Pcalculostrategy;
         }
 
-        /*
+        
         //ACCION CALCULAR
-        public DatosCalculo Calcular(DatosCalculo _datos)
+        public DatosCalculo RealizarCalculo(DatosCalculo _datos)
         {
             return _calculoStrategy.RealizarCalculo(_datos);
 
         }
-        */
+        
 
     }
 }

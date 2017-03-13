@@ -8,7 +8,7 @@ namespace WASS_SAPTFI.Controllers.Calculos
     public class Ley24241:CalculoStrategy
     {
 
-        /*
+        
         public override DatosCalculo RealizarCalculo(DatosCalculo pDatos)
         {
 
@@ -17,7 +17,7 @@ namespace WASS_SAPTFI.Controllers.Calculos
             return pDatos;
 
         }
-        */
+        
 
 
         //Calcular Prestación Compensatoria

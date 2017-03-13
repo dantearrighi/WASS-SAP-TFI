@@ -5,11 +5,14 @@ using System.Web;
 
 namespace WASS_SAPTFI.Controllers.Calculos
 {
-    public class  CalculoStrategy
+    public abstract class  CalculoStrategy
     {
        //public abstract DatosCalculo RealizarCalculo(DatosCalculo pDatos);
 
-
+        public abstract DatosCalculo RealizarCalculo(DatosCalculo pDatos);
+        
+            
+        
 
         
     }
