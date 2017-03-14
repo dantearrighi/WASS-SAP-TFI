@@ -1,0 +1,56 @@
+﻿<div class="container">
+    <div class="row">
+        <div>
+            @using (Html.BeginForm("EnviarMensajeSoporte","Home"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "Debe corregir los siguientes errores:", new { @class = "bg-danger" })
+
+                         
+                
+                 <div class="form-group col-md-6">
+                 <label for="contactoEmail">Email</label>
+                 <div class="fa fa-envelope" ></div>
+                 <input type="email" class="form-control" id="contactoEmail" placeholder="direccion@email.com">
+             <!-- NO FUNCIONA LA VALIDACION DE EMAIL-->
+                     @Html.ValidationMessage("Email", new { @class = "bg-danger" })
+                     <p class="help-block">Ingrese una dirección de email alternativo</p>
+                 
+
+                     <label for="contactoTel">Teléfono</label>
+                     <div class="fa fa-phone"></div>
+                     <input type="tel" class="form-control" id="contactoTel" >
+                     <p class="help-block">Ingrese un teléfono de contacto alternativo</p>
+                     
+                
+                     <div class="form-group">
+                         <label for="Asunto">Asunto</label>
+                         <select class="form-control" id="asunto">
+                             <option>Consulta</option>
+                             <option>Error/problema general</option>
+                             <option>Error de cálculos</option>
+                             <option>Solicitar asistencia</option>
+                             <option>Sugerencia</option>
+                             <option>Otro</option>
+
+                         </select>
+                         @*Html.ValidationMessageFor(model => model.Estado_Civil)*@
+                     </div>
+
+                     <label for="contacto">Mensaje</label>
+                     
+                     <textarea class="form-control" id="mensaje" placeholder="Ingrese aquí su mensaje..." rows="5"></textarea>
+                     
+                 <div class="row col-sm-6">
+                    <br />
+                        <input type="submit" value="Enviar" class="btn btn-success btn-block btn-lg" tabindex="7" />
+                 
+
+                </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>

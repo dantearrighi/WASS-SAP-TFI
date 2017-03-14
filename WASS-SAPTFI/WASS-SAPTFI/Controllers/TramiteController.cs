@@ -21,17 +21,38 @@ namespace WASS_SAPTFI.Controllers
 
         TramiteVM modelAlta = new TramiteVM();
         Detalle_TramiteVM dtvm = new Detalle_TramiteVM();
+        Calculos.CalculoStrategy _CalculoStrategy;
+
+        public Modelos.Tramite dbTramites
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
 
 
 
+        //Seteo la estrategia a utilizar (Tipo de calculo que voy a hacer)
+        public void SetCalculoStrategy(Calculos.CalculoStrategy pStrategy)
+        {
+            this._CalculoStrategy = pStrategy;
+        }
 
 
+        public void RealizarCalculo(Calculos.DatosCalculo pDatos, Calculos.CalculoStrategy pCalculoStrategy)
+        {
+            
+        }
 
 
 
         #region /-/-/-/-/-/-/-/-/---->              G E S T I O N A R   T R A M I T E S              <----/-/-/-/-/-/-/-/-/-/
 
-
+        //AUTOCOMPLETAR EN EL LISTADO
         public ActionResult Autocomplete(string term)
         {
             
@@ -47,15 +68,7 @@ namespace WASS_SAPTFI.Controllers
 
             return Json(model, JsonRequestBehavior.AllowGet);
         }
-
-
-
-
-
-
-
-
-
+        
 
         //------------> LISTA de Tramites 
         //(Muestra todos los tramites, el ultimo movimiento y la fecha, dni y nombre de la persona)
@@ -110,12 +123,12 @@ namespace WASS_SAPTFI.Controllers
 
 
 
-        #region /-/-/-/---->    A L T A   T R A M I T E     <----/-/-/-/
+            #region /-/-/-/---->    A L T A   T R A M I T E     <----/-/-/-/
 
 
 
-        // GET: /Tramite/Create
-        // TramiteVM tiene los datos para crear un tramite: Lista de Personas, Tipos de Tramite
+        // GET: /dbTramites/Create
+        // TramiteVM tiene los datos para crear un tramite: Lista de Personas, Tipos de dbTramites
         // CU Gestionar Tramites: El usuario hace click en el boton "AÑADIR"
         public ActionResult Create()
         {
@@ -251,11 +264,11 @@ namespace WASS_SAPTFI.Controllers
         
         /*
         //
-        // POST: /Tramite/Create
+        // POST: /dbTramites/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Tramite tramite)
+        public ActionResult Create(dbTramites tramite)
         {
             if (ModelState.IsValid)
             {
@@ -292,16 +305,15 @@ namespace WASS_SAPTFI.Controllers
             //Lista de Detalles 
             dtvm.DetallesHistoricos = t.Detalles_Tramite.ToList();
 
-            //Datos Persona
+            //Datos dbPersonas
             dtvm.DNI = t.Persona.DNI;
             dtvm.NombreYapellido = t.Persona.NombreYapellido;
 
-            //Datos Tramite
+            //Datos dbTramites
             dtvm.TipoTramiteDescripcion = t.Tipo_Tramite.Descripcion;
             dtvm.IdTramite = t.Id;
             dtvm.Fecha_Alta = t.Fecha_Alta;
         }
-
 
         //AÑADIR DETALLE
         [HttpPost]
@@ -334,13 +346,8 @@ namespace WASS_SAPTFI.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-
-
-
         //
-        // GET: /Tramite/
+        // GET: /dbTramites/
 
         public ActionResult Index(string searchTerm)
         {
@@ -364,8 +371,6 @@ namespace WASS_SAPTFI.Controllers
             }        
             
         }
-
-
 
         public List<ListaTramiteVM> ObtenerListaTramites(string filtro)
         {
@@ -419,13 +424,9 @@ namespace WASS_SAPTFI.Controllers
 
             return listaTramites;
         }
-
-
-    
-
-
+        
         //
-        // GET: /Tramite/Details/5
+        // GET: /dbTramites/Details/5
 
         public ActionResult Details(int id = 0)
         {
@@ -435,12 +436,10 @@ namespace WASS_SAPTFI.Controllers
                 return HttpNotFound();
             }
             return View(tramite);
-        }
-
-       
+        }     
        
         //
-        // GET: /Tramite/Edit/5
+        // GET: /dbTramites/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
@@ -453,7 +452,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // POST: /Tramite/Edit/5
+        // POST: /dbTramites/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -469,7 +468,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // GET: /Tramite/Delete/5
+        // GET: /dbTramites/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
@@ -482,7 +481,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // POST: /Tramite/Delete/5
+        // POST: /dbTramites/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

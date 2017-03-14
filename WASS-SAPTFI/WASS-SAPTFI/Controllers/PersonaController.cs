@@ -16,6 +16,17 @@ namespace WASS_SAPTFI.Controllers
     {
        private WASSDbContext db = new WASSDbContext();
 
+       public Modelos.Persona dbPersonas
+       {
+           get
+           {
+               throw new System.NotImplementedException();
+           }
+           set
+           {
+           }
+       }
+
 
 
         //[HttpGet]
@@ -37,7 +48,7 @@ namespace WASS_SAPTFI.Controllers
 
 
         //
-        // GET: /Persona/
+        // GET: /dbPersonas/
 
         public ActionResult Index(string searchTerm)
         {
@@ -85,7 +96,7 @@ namespace WASS_SAPTFI.Controllers
 
 
         //
-        // GET: /Persona/Details/5
+        // GET: /dbPersonas/Details/5
 
         public ActionResult Details(int id = 0)
         {
@@ -98,7 +109,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // GET: /Persona/Create
+        // GET: /dbPersonas/Create
 
         public ActionResult Create()
         {
@@ -106,7 +117,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // POST: /Persona/Create
+        // POST: /dbPersonas/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -123,7 +134,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // GET: /Persona/Edit/5
+        // GET: /dbPersonas/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
@@ -136,7 +147,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // POST: /Persona/Edit/5
+        // POST: /dbPersonas/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -152,7 +163,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // GET: /Persona/Delete/5
+        // GET: /dbPersonas/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
@@ -165,7 +176,7 @@ namespace WASS_SAPTFI.Controllers
         }
 
         //
-        // POST: /Persona/Delete/5
+        // POST: /dbPersonas/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -179,7 +190,7 @@ namespace WASS_SAPTFI.Controllers
 
 
         //
-        //GET: /Persona/SeleccionarPersona
+        //GET: /dbPersonas/SeleccionarPersona
         public ActionResult SeleccionarPersona(int id)
         {
             //Busco una persona por ID

@@ -233,6 +233,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="DiagramaClases.cd" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -350,6 +351,8 @@
     <Content Include="Views\Tramite\_ModificarTramite.cshtml" />
     <Content Include="Views\Calculo\_AltaCalculo_24241.cshtml" />
     <Content Include="Views\Tramite\_ListaPersonasTramite.cshtml" />
+    <Content Include="Views\Home\Gmail.cshtml" />
+    <Content Include="Views\Shared\_formSoporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

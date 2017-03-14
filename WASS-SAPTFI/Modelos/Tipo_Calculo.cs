@@ -7,17 +7,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Modelos
 {
-  public  class Calculo
+    public class Tipo_Calculo
     {
         [Key]
         public int Id { get; set; }
 
-        public int idTramite { get; set; }
-
+        [Required]
         public string Descripcion { get; set; }
-
-        
-        public Tipo_Calculo Tipo_de_Calculo{ get; set; }
 
 
 

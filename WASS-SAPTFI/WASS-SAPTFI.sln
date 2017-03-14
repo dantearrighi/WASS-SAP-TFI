@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controladora", "D:\Documentos\UAI\WASS\WASS Diploma\Controladora\Controladora.csproj", "{6A2411B6-AE36-4C94-B3AC-347F5B14D659}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "UMLDiagramas", "UMLDiagramas\UMLDiagramas.modelproj", "{E1E7F311-BB07-4FF4-9BEC-29C80D36E9F0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{6A2411B6-AE36-4C94-B3AC-347F5B14D659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A2411B6-AE36-4C94-B3AC-347F5B14D659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A2411B6-AE36-4C94-B3AC-347F5B14D659}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1E7F311-BB07-4FF4-9BEC-29C80D36E9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1E7F311-BB07-4FF4-9BEC-29C80D36E9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1E7F311-BB07-4FF4-9BEC-29C80D36E9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1E7F311-BB07-4FF4-9BEC-29C80D36E9F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

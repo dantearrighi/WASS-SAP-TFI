@@ -141,8 +141,7 @@
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                         <li><a href="/Persona"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list fa-stack-1x"></i></span>Ver lista</a></li>
                         <li><a href="/Persona/Create"><span class="fa-stack fa-lg pull-left"><i class="fa fa-plus-circle  fa-stack-1x "></i></span>Añadir</a></li>
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-refresh  fa-stack-1x "></i></span>Modificar</a></li>
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-eye fa-stack-1x "></i></span>Consultar</a></li>
+                        
                         
                     </ul>
                 </li>
@@ -151,9 +150,7 @@
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                         <li><a href="/Tramite"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list fa-stack-1x "></i></span>Ver lista</a></li>
                         <li><a href="/Tramite/Create"><span class="fa-stack fa-lg pull-left"><i class="fa fa-plus-circle fa-stack-1x "></i></span>Añadir</a></li>
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-refresh fa-stack-1x "></i></span>Modificar</a></li>
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-eye fa-stack-1x "></i></span>Consultar</a></li>
-
+                       
                     </ul>
                 </li>
                 <li>
@@ -170,14 +167,23 @@
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-file fa-stack-1x "></i></span>Informes</a>
                 </li>
                 <li>
-                    <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope fa-stack-1x "></i></span>Gmail</a>
+                    <a href="http://www.gmail.com" target="_blank"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope fa-stack-1x "></i></span>Gmail</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>Manual de Usuario</a>
                 </li>
                 
                 <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-question-circle fa-stack-1x "></i></span>Contactar Soporte</a>
+
+
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-question-circle fa-stack-1x"></i></span> Ayuda</a>
+                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                        <li><a href="" data-toggle="modal" data-target="#contactarSoporte"><span class="fa-stack fa-lg pull-left"><i class="fa fa-envelope fa-stack-1x " data-toggle="modal" data-target="#contactarSoporte"></i></span>Contactar Soporte</a></li>
+                        <li><a href=""><span class="fa-stack fa-lg pull-left"><i class="fa fa-mouse-pointer  fa-stack-1x "></i></span>Asistencia remota</a></li>
+
+
+                    </ul>
+                    
                 </li>
             </ul>
         </div><!-- /#sidebar-wrapper -->
@@ -204,5 +210,47 @@
     @Scripts.Render("~/Content/js")
    @Scripts.Render("~/bundles/wasscript")
     @RenderSection("scripts", required: false)
+
+
+
+
+    <!-- CONTACTAR SOPORTE-->
+    <!-- Modal -->
+    <div class="modal fade" id="contactarSoporte" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">Formulario de contacto 
+                    <br /><small>Informar a soporte técnico</small></h2>
+                    <hr class="colorgraph">
+                   
+                </div>
+                <div class="modal-body">
+                    <!---CUERPO DEL FORMULARIO-->
+
+
+                   @Html.Partial("_formSoporte")
+
+
+
+                    <!---FIN CUERPO DEL FORMULARIO-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

@@ -16,5 +16,13 @@ namespace WASS_SAPTFI.Controllers
             return View();
         }
 
+
+
+        public ActionResult Gmail()
+        {
+            return View();
+        }
+
+
     }
 }

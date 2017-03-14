@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WASS_SAPTFI.Controllers.Calculos.CalculoController">
+    <Position X="14.75" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQIAAAAAAAAAAgIAAAEAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\Calculos\CalculoController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_calculoStrategy" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WASS_SAPTFI.Controllers.Calculos.CalculoStrategy">
+    <Position X="11.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Calculos\CalculoStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WASS_SAPTFI.Controllers.Calculos.DatosCalculo">
+    <Position X="13.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AACSAIAAAgAgJAggAAAAAAAoAAAAAAAAAAAAAAABAEA=</HashCode>
+      <FileName>Controllers\Calculos\DatosCalculo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WASS_SAPTFI.Controllers.Calculos.Ley24241">
+    <Position X="11.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Calculos\Ley24241.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WASS_SAPTFI.Controllers.TramiteController">
+    <Position X="8.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AhAAAAgEACARABCABBACACAgIAUAAEACAAEAACAgEIA=</HashCode>
+      <FileName>Controllers\TramiteController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_CalculoStrategy" />
+      <Field Name="db" />
+      <Property Name="dbTramites" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WASS_SAPTFI.Controllers.PersonaController">
+    <Position X="8.25" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEACARAACAABAAAAAAAAEAAEACAAEAACAAAAA=</HashCode>
+      <FileName>Controllers\PersonaController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="db" />
+      <Property Name="dbPersonas" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Datos.WASSDbContext">
+    <Position X="11" Y="2.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Modelos.Tramite">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <Members>
+      <Method Name="Tramite" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Tipo_Tramite" Type="Modelos.Tipo_Tramite" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="6.237" />
+        <Point X="5.125" Y="6.237" />
+        <Point X="5.125" Y="6.528" />
+        <Point X="4.25" Y="6.528" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.164" Y="0.108" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Persona" Type="Modelos.Persona" FixedToPoint="true">
+      <Path>
+        <Point X="6.625" Y="4.75" />
+        <Point X="6.625" Y="4.103" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Tipo_Tramite" />
+      <Property Name="Persona" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Expedientes" />
+      <Property Name="Tipos_de_Calculos" />
+      <Property Name="Detalles_Tramite" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Modelos.Detalles_Tramite">
+    <Position X="5.5" Y="7.75" Width="1.5" />
+    <Members>
+      <Method Name="Detalles_Tramite" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Modelos.Persona">
+    <Position X="4.75" Y="0.5" Width="2" />
+    <Members>
+      <Method Name="Persona" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Tramites" Type="Modelos.Tramite" FixedToPoint="true">
+      <Path>
+        <Point X="5.75" Y="4.103" />
+        <Point X="5.75" Y="4.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Tramites" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Modelos.Expediente">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Modelos.Tipo_Tramite">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <Members>
+      <Method Name="Tipo_Tramite" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Documentacion_Requerida" Type="Modelos.Documentacion" FixedToPoint="true">
+      <Path>
+        <Point X="4.062" Y="7.546" />
+        <Point X="4.062" Y="8.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="Documentacion_Requerida" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Modelos.Documentacion">
+    <Position X="2.75" Y="8.5" Width="1.5" />
+    <Members>
+      <Method Name="Documentacion" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Modelos.DocSalud" Collapsed="true">
+    <Position X="6.25" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Modelos.DocPersonal" Collapsed="true">
+    <Position X="2.75" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Modelos.DocLaboral" Collapsed="true">
+    <Position X="4.5" Y="11" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Modelos.Tipo_Calculo">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <Members>
+      <Method Name="Tipo_Calculo" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Modelos.Calculo">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <Members>
+      <Method Name="Calculo" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Tipo_de_Calculo" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
