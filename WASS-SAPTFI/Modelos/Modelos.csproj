@@ -53,6 +53,7 @@
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provincia.cs" />
+    <Compile Include="Tipo_Calculo.cs" />
     <Compile Include="Tipo_Documento.cs" />
     <Compile Include="Tipo_Persona.cs" />
     <Compile Include="Tipo_Tramite.cs" />
